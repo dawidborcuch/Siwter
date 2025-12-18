@@ -170,36 +170,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Breadcrumb depth for Oferta sections (hash-based)
-    const offerSectionEl = document.querySelector('.breadcrumb__section');
-    const offerSepEl = document.querySelector('.breadcrumb__sep--section');
-    if (offerSectionEl && offerSepEl) {
-        const map = {
-            '#murarskie': 'Prace murarsko – wyburzeniowe',
-            '#gipsy': 'Gipsy, malowanie',
-            '#montaz': 'Prace montażowe',
-            '#podlogi': 'Podłogi',
-            '#glazura': 'Glazura, terakota',
-            '#instalacje': 'Instalacje wod.-kan., biały montaż, obudowy',
-            '#elektryczne': 'Instalacje elektryczne',
-        };
-
-        const updateOfferBreadcrumb = () => {
-            const h = window.location.hash || '';
-            const label = map[h];
-            if (label) {
-                offerSectionEl.textContent = label;
-                offerSectionEl.hidden = false;
-                offerSepEl.style.display = '';
-            } else {
-                offerSectionEl.textContent = '';
-                offerSectionEl.hidden = true;
-                offerSepEl.style.display = 'none';
-            }
-        };
-
-        updateOfferBreadcrumb();
-        window.addEventListener('hashchange', updateOfferBreadcrumb);
-    }
+    // Oferta breadcrumb is always 2-level now (no hash-based depth)
 });
 
