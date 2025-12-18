@@ -1,7 +1,33 @@
 {% extends "base.html" %}
 {% block title %}O Nas - Siwter{% endblock %}
 {% block content %}
-<section class="page-header"><div class="container"><h1>O Nas</h1></div></section>
+{% load static %}
+<section class="page-header"><div class="container"><h1>O nas</h1></div></section>
+
+<section class="about-page">
+    <div class="container">
+        <div class="about-page__grid">
+            <div class="about-page__media">
+                <img src="{% static 'img/slider/slide-3.jpg' %}" alt="Siwter - realizacje" loading="lazy">
+            </div>
+            <div class="about-page__content">
+                <p>Siwter to firma remontowo-budowlana. Zajmujemy się kompleksowymi wykończeniami mieszkań, domów, lokali biurowych oraz remontowaniem i adaptacją pomieszczeń takich jak poddasza, piwnice oraz sutereny.</p>
+
+                <p>Prace naszej firmy obejmują budynki mieszkalne - zarówno mieszkania, domy jednorodzinne, a także wnętrza użytkowe przeznaczone pod sklepy, biura, magazyny czy miejsca wypoczynku. Realizujemy zlecenia osób prywatnych, a także firm i innych instytucji.</p>
+
+                <p>Dbamy o dobry kontakt z klientem i staramy się każdemu dać pewność fachowo wykonanych usług.</p>
+
+                <p>Każde zlecenie traktujemy indywidualnie starając się dotrzymać terminów zawartych w umowie z klientem.</p>
+
+                <p>Oprócz prac budowlano-wykończeniowych oferujemy państwu pomoc przy skręcaniu-montażu mebli, usługi transportowe oraz sprzątanie.</p>
+
+                <p><strong>Wykonanie pomiarów i wycena gratis.</strong></p>
+
+                <p><strong>Zapraszamy do współpracy.</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 

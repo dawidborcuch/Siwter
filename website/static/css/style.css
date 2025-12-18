@@ -12,6 +12,10 @@ body {
     background-color: #fff;
 }
 
+html, body {
+    overflow-x: hidden; /* usuwa dolny poziomy scrollbar */
+}
+
 /* Slider jest absolutny (nie rezerwuje miejsca) — ta wartość jest ustawiana w JS,
    żeby treść strony zaczynała się realnie POD sliderem */
 main {
@@ -436,11 +440,11 @@ img {
 
 .hero-carousel__viewport {
     position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw; /* full-bleed */
-    margin-right: -50vw; /* full-bleed */
+    width: 100%;
+    left: auto;
+    right: auto;
+    margin-left: 0;
+    margin-right: 0;
     overflow: hidden;
     background: #000;
     z-index: 10;
@@ -649,6 +653,314 @@ img {
 
 .btn-primary:hover {
     background-color: #2980b9;
+}
+
+/* Żółty przycisk jak na sliderze (do użycia poza sliderem) */
+.btn-primary.btn-primary--yellow {
+    background: #fcc71f;
+    color: #111;
+    border: 0;
+}
+
+.btn-primary.btn-primary--yellow:hover {
+    background: #e2b11b;
+}
+
+/* Full-width CTA strip under home sections */
+.cta-strip {
+    width: 100%;
+    background: #222; /* jak prostokąty menu */
+    padding: 26px 0;
+}
+
+.cta-strip__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.cta-strip__text {
+    margin: 0;
+    color: #bbbbbb;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.cta-strip__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Wyrównanie przycisków do tej samej wysokości w pasku CTA */
+.cta-strip__actions > a.btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    min-height: 46px;
+    box-sizing: border-box;
+    margin: 0; /* nadpisuje globalne margin-top z .btn-primary */
+}
+
+.btn-cta-secondary {
+    display: inline-flex;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    background: transparent;
+    color: #bbbbbb;
+    border: 2px solid rgba(187, 187, 187, 0.6);
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.8);
+    color: #fff;
+}
+
+/* Kafelki oferty (2 rzędy po 3) */
+.offer-tiles {
+    padding: 46px 0 64px;
+    background: #fff;
+}
+
+.offer-tiles__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.offer-tile {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+
+.offer-tile__media {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.offer-tile__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.offer-tile__body {
+    padding: 16px 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 190px; /* żeby kafelki były równe */
+}
+
+.offer-tile__title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 900;
+    color: #222;
+}
+
+.offer-tile__text {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.offer-tile__btn {
+    align-self: flex-start;
+    margin: 0;
+}
+
+@media (max-width: 992px) {
+    .offer-tiles__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .offer-tiles__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer */
+.site-footer__top {
+    background: #e6e6e6; /* jasny szary */
+    padding: 54px 0 58px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.footer-title {
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #222;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 46px;
+    height: 3px;
+    background: #fcc71f;
+}
+
+.footer-logo img {
+    width: 160px;
+    height: auto;
+    display: block;
+    margin: 0 0 12px 0;
+}
+
+.footer-text {
+    margin: 0 0 14px 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.footer-btn {
+    margin: 0;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #222;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-contact li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: #222;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-contact i.fa {
+    color: #9a9a9a;
+    width: 18px;
+    margin-top: 2px;
+}
+
+.footer-contact a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.site-footer__bottom {
+    background: #fcc71f;
+    color: #111;
+    padding: 14px 0;
+}
+
+.site-footer__bottom p {
+    margin: 0;
+    font-weight: 800;
+    text-align: center;
+}
+
+@media (max-width: 1100px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* About page */
+.about-page {
+    padding: 54px 0 70px;
+    background: #fff;
+}
+
+.about-page__grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 34px;
+    align-items: start;
+}
+
+.about-page__media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.about-page__content p {
+    margin: 0 0 14px 0;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+@media (max-width: 992px) {
+    .about-page__grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .btn-secondary {

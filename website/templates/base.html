@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Siwter - Firma remontowo-budowlana{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20251218-5">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20251218-13">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -112,6 +112,72 @@
     <main>
         {% block content %}{% endblock %}
     </main>
+
+    <footer class="site-footer" aria-label="Stopka">
+        <div class="site-footer__top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h3 class="footer-title">O nas</h3>
+                        <div class="footer-logo">
+                            <img src="{% static 'img/SIWTER_logo_RGB.png' %}" alt="Siwter" loading="lazy">
+                        </div>
+                        <p class="footer-text">Zajmujemy się kompleksowymi wykończeniami mieszkań, domów, lokali biurowych oraz remontowaniem i adaptacją pomieszczeń takich jak poddasza, piwnice oraz sutereny.</p>
+                        <a class="btn btn-primary btn-primary--yellow footer-btn" href="{% url 'contact' %}#wycena-online">Wycena online</a>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3 class="footer-title">Nasza oferta</h3>
+                        <ul class="footer-links">
+                            <li><a href="{% url 'offer' %}">Wszystkie usługi</a></li>
+                            <li><a href="{% url 'offer' %}#murarskie">Prace murarsko – wyburzeniowe</a></li>
+                            <li><a href="{% url 'offer' %}#gipsy">Gipsy, malowanie</a></li>
+                            <li><a href="{% url 'offer' %}#montaz">Prace montażowe</a></li>
+                            <li><a href="{% url 'offer' %}#podlogi">Podłogi</a></li>
+                            <li><a href="{% url 'offer' %}#glazura">Glazura, terakota</a></li>
+                            <li><a href="{% url 'offer' %}#instalacje">Instalacje wod.-kan., biały montaż, obudowy</a></li>
+                            <li><a href="{% url 'offer' %}#elektryczne">Instalacje elektryczne</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3 class="footer-title">Więcej</h3>
+                        <ul class="footer-links">
+                            <li><a href="{% url 'about' %}">O nas</a></li>
+                            <li><a href="{% url 'pricing' %}">Cennik</a></li>
+                            <li><a href="{% url 'contact' %}">Kontakt</a></li>
+                            <li><a href="{% url 'privacy' %}">Polityka Prywatności</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3 class="footer-title">Szybki kontakt</h3>
+                        <p class="footer-text">Jeśli macie Państwo jakiekolwiek pytania, zapraszamy do kontaktu. Służymy pomocą w doradztwie, zakupie, dostawie materiałów.</p>
+                        <ul class="footer-contact">
+                            <li>
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                                <span>ul. Folwarczna 23A<br>07-130 Łochów</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <a href="tel:+48730730473">+48 730 730 473</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                <a href="mailto:siwterbiuro@gmail.com">siwterbiuro@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="site-footer__bottom">
+            <div class="container">
+                <p>Copyright © 2025 Siwter</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="{% static 'js/main.js' %}?v=20251218-3"></script>
 </body>

@@ -120,6 +120,7 @@
         </button>
     </div>
 </section>
+
 {% endblock %}
 
 {% block content %}
@@ -137,6 +138,8 @@
                 <p>Każde zlecenie traktujemy indywidualnie starając się dotrzymać terminów zawartych w umowie z klientem.</p>
 
                 <p>Oprócz prac budowlano-wykończeniowych oferujemy państwu pomoc przy skręcaniu-montażu mebli, usługi transportowe oraz sprzątanie.</p>
+
+                <a class="btn btn-primary btn-primary--yellow" href="{% url 'about' %}">Więcej o nas</a>
             </article>
 
             <article class="home-col home-col--topics">
@@ -155,6 +158,90 @@
                 <div class="topic-block">
                     <h3>POKÓJ</h3>
                     <p>Pomysłów na urządzanie pokoju jest bardzo wiele, jednak nie zawsze potrafimy przewidzieć, czy wybrane meble, podłogi czy dodatki będą nam się zawsze podobać.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="cta-strip" aria-label="Wezwanie do działania">
+    <div class="container">
+        <div class="cta-strip__inner">
+            <p class="cta-strip__text">Wykonanie pomiarów i wycena gratis. Zapraszamy do współpracy!</p>
+            <div class="cta-strip__actions">
+                <a class="btn btn-primary btn-primary--yellow" href="{% url 'offer' %}">Nasza oferta</a>
+                <a class="btn btn-cta-secondary" href="#" aria-label="Wycena online">Wycena online</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="offer-tiles" aria-label="Zakres usług">
+    <div class="container">
+        <div class="offer-tiles__grid">
+            <article class="offer-tile">
+                <a class="offer-tile__media" href="{% url 'offer' %}#murarskie" aria-label="Prace murarsko - wyburzeniowe">
+                    <img src="{% static 'img/slider/slide-6.jpg' %}" alt="Prace murarsko - wyburzeniowe" loading="lazy">
+                </a>
+                <div class="offer-tile__body">
+                    <h3 class="offer-tile__title">Prace murarsko - wyburzeniowe</h3>
+                    <p class="offer-tile__text">W dobrze wyremontowanym pomieszczeniu chce się przebywać. Liczy się staranność wykonania prac, gładkość ścian, zachowanie kątów, kolory odpowiednio dobrane do przestrzeni i oświetlenia, dobry materiał i fachowcy, którzy podejmą …</p>
+                    <a class="btn btn-primary btn-primary--yellow offer-tile__btn" href="{% url 'offer' %}#murarskie">Więcej</a>
+                </div>
+            </article>
+
+            <article class="offer-tile">
+                <a class="offer-tile__media" href="{% url 'offer' %}#gipsy" aria-label="Gipsy, malowanie">
+                    <img src="{% static 'img/slider/slide-5.jpg' %}" alt="Gipsy, malowanie" loading="lazy">
+                </a>
+                <div class="offer-tile__body">
+                    <h3 class="offer-tile__title">Gipsy, malowanie</h3>
+                    <p class="offer-tile__text">Proponujemy Państwu wykonanie podwieszanych sufitów i zabudowy wykonane z płyt kartonowo – gipsowych. To nowoczesne, dekoracyjne i trwałe wykończenie wnętrz, nadające im odpowiedni charakter.</p>
+                    <a class="btn btn-primary btn-primary--yellow offer-tile__btn" href="{% url 'offer' %}#gipsy">Więcej</a>
+                </div>
+            </article>
+
+            <article class="offer-tile">
+                <a class="offer-tile__media" href="{% url 'offer' %}#montaz" aria-label="Prace montażowe">
+                    <img src="{% static 'img/slider/slide-4.jpg' %}" alt="Prace montażowe" loading="lazy">
+                </a>
+                <div class="offer-tile__body">
+                    <h3 class="offer-tile__title">Prace montażowe</h3>
+                    <p class="offer-tile__text">Nasze ekipy montażowe posiadają wieloletnie doświadczenie, dzięki czemu montaż jest przeprowadzany szybko i fachowo. Montujemy drzwi, okna, okna dachowe, parapety i inną stolarkę budowlaną na terenie Warszawy i okolic, w mieszkaniach, …</p>
+                    <a class="btn btn-primary btn-primary--yellow offer-tile__btn" href="{% url 'offer' %}#montaz">Więcej</a>
+                </div>
+            </article>
+
+            <article class="offer-tile">
+                <a class="offer-tile__media" href="{% url 'offer' %}#podlogi" aria-label="Podłogi">
+                    <img src="{% static 'img/slider/slide-3.jpg' %}" alt="Podłogi" loading="lazy">
+                </a>
+                <div class="offer-tile__body">
+                    <h3 class="offer-tile__title">Podłogi</h3>
+                    <p class="offer-tile__text">Nasza firma specjalizuje się w wykonywaniu kompleksowych usług w zakresie montażu podłóg drewnianych, laminowanych oraz drzwi wewnętrznych i zewnętrznych.</p>
+                    <a class="btn btn-primary btn-primary--yellow offer-tile__btn" href="{% url 'offer' %}#podlogi">Więcej</a>
+                </div>
+            </article>
+
+            <article class="offer-tile">
+                <a class="offer-tile__media" href="{% url 'offer' %}#glazura" aria-label="Glazura, terakota">
+                    <img src="{% static 'img/slider/slide-7.jpg' %}" alt="Glazura, terakota" loading="lazy">
+                </a>
+                <div class="offer-tile__body">
+                    <h3 class="offer-tile__title">Glazura, terakota</h3>
+                    <p class="offer-tile__text">Płytki ceramiczne są bardzo estetyczne i wytrzymałe, odporne na ścieranie i łatwe w utrzymaniu. Dodają wnętrzom dodatkowy charakter, a wzornictwo jest ogromne.</p>
+                    <a class="btn btn-primary btn-primary--yellow offer-tile__btn" href="{% url 'offer' %}#glazura">Więcej</a>
+                </div>
+            </article>
+
+            <article class="offer-tile">
+                <a class="offer-tile__media" href="{% url 'offer' %}#instalacje" aria-label="Instalacje wod.-kan., biały montaż, obudowy">
+                    <img src="{% static 'img/slider/slide-2.jpg' %}" alt="Instalacje wod.-kan., biały montaż, obudowy" loading="lazy">
+                </a>
+                <div class="offer-tile__body">
+                    <h3 class="offer-tile__title">Instalacje wod.-kan., biały montaż, obudowy</h3>
+                    <p class="offer-tile__text">Łazienka w każdym domu to miejsce szczególne - w niej bowiem rozpoczynamy i kończymy dzień. Chcemy więc, aby jej wnętrze miało klimat dodający nam rano energii na cały dzień, a wieczorem zapewniało relaks przed snem.</p>
+                    <a class="btn btn-primary btn-primary--yellow offer-tile__btn" href="{% url 'offer' %}#instalacje">Więcej</a>
                 </div>
             </article>
         </div>

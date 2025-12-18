@@ -10,6 +10,7 @@ urlpatterns = [
     path("galeria/", views.gallery, name="gallery"),
     path("cennik/", views.pricing, name="pricing"),
     path("kontakt/", views.contact, name="contact"),
+    path("polityka-prywatnosci/", views.privacy, name="privacy"),
 ]
 
 
