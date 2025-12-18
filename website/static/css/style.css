@@ -1081,6 +1081,74 @@ img {
     }
 }
 
+/* Oferta: detale usługi (np. murarskie) */
+.offer-detail .about-page__content h2 {
+    margin: 0 0 14px 0;
+    font-size: 28px;
+    font-weight: 900;
+    color: #222;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.offer-detail .about-page__content h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 64px;
+    height: 3px;
+    background: #fcc71f;
+}
+
+.offer-detail .about-page__content h3 {
+    margin: 18px 0 12px 0;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    color: #222;
+    text-transform: uppercase;
+}
+
+.offer-detail__pricebox {
+    background: #f7f7f7;
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 14px 16px;
+}
+
+.offer-detail__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.offer-detail__list li {
+    position: relative;
+    padding-left: 22px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.offer-detail__list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fcc71f;
+    font-weight: 900;
+}
+
+@media (min-width: 900px) {
+    .offer-detail__list {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 22px;
+    }
+}
+
 /* Gallery page */
 .gallery-page {
     padding: 54px 0 70px;

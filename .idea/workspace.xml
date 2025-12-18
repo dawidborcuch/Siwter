@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b508d68-d306-4df3-a97a-80016c600448" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/media/gallery/niwelator.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/gallery/slide-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/gallery/slide-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/gallery/slide-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/gallery/slide-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/gallery/slide-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/gallery/slide-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/gallery/slide-7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/migrations/0002_remove_galleryimage_title.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siwter/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/siwter/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/website/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/website/static/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/templates/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/gallery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="0b508d68-d306-4df3-a97a-80016c600448" name="Changes" comment="init" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766070798150</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="init">
+      <option name="closed" value="true" />
+      <created>1766072547085</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1766072547085</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

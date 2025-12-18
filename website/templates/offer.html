@@ -2,6 +2,7 @@
 {% block title %}Oferta - Siwter{% endblock %}
 {% block meta_description %}Oferta Siwter: prace murarskie, gipsy i malowanie, montaż, podłogi, glazura oraz instalacje. Pomiar i wycena gratis.{% endblock %}
 {% block content %}
+{% load static %}
 <section class="page-header page-header--breadcrumb-only">
     <div class="container">
         <nav class="breadcrumb" aria-label="Aktualne miejsce">
@@ -11,6 +12,101 @@
             <span class="breadcrumb__sep breadcrumb__sep--section" aria-hidden="true">→</span>
             <span class="breadcrumb__section" aria-current="page" hidden></span>
         </nav>
+    </div>
+</section>
+
+<section class="about-section offer-detail" id="murarskie" data-reveal>
+    <div class="container">
+        <div class="about-page__grid">
+            <div class="about-page__media">
+                <img src="{% static 'img/slider/slide-6.jpg' %}" alt="Prace murarsko-wyburzeniowe" loading="lazy">
+            </div>
+            <div class="about-page__content">
+                <h2>Prace murarsko-wyburzeniowe</h2>
+                <p>W dobrze wyremontowanym pomieszczeniu chce się przebywać. Liczy się staranność wykonania prac, gładkość ścian, zachowanie kątów, kolory odpowiednio dobrane do przestrzeni i oświetlenia, dobry materiał i fachowcy, którzy podejmą się zlecenia. Działamy na rynku remontowym od wielu lat, posiadamy doświadczenie i odpowiednie umiejętności. Podejmujemy się kompleksowych remontów zarówno dla firm, jak i na zlecenie indywidualnych klientów. Korzystamy z technologii łącząc nowe i tradycyjne rozwiązania.</p>
+
+                <h3>Cennik usług</h3>
+                <div class="offer-detail__pricebox">
+                <ul class="offer-detail__list">
+                    <li>wyburzenie ścian z cegły i betonu komórkowego – 40-50 zł/m2 (do 16cm.grubości),</li>
+                    <li>wyburzenie ścian żelbetowych – 50 zł-80 zł/m2 (do 12cm grubości),</li>
+                    <li>skuwanie tynków – 15 zł/m2,</li>
+                    <li>demontaże sufitów podwieszanych-20-30 zł/m2,</li>
+                    <li>demontaże ościeżnic z drzwi – 50/100 zł. sztuka,</li>
+                    <li>skuwanie glazury i terakoty- 10 zł/m2,</li>
+                    <li>wyrównanie ścian po skuwaniu – 10-20 zł/m2,</li>
+                    <li>wylewka samopoziomująca-25 zł/m2,</li>
+                    <li>wylewka tradycyjna cementowa – 28 zł/m2,</li>
+                    <li>tynk tradycyjny cem.wapienny-28 zł/m2,</li>
+                    <li>obsadzenie kątowników tynkarskich – 8 zł/mb,</li>
+                    <li>miejscowe naprawy ubytków w tynkach ,bruzd po wyburzeniach, itp. – 20 zł/mb,</li>
+                    <li>tynk typu baranek na ściany i sufity – 20 zł/m2,</li>
+                    <li>tynki dekoracyjne(stiuk,beton architektoniczny) – 60 zł/m2,</li>
+                    <li>wywóz gruzu z wyniesieniem – do uzgodnienia,</li>
+                    <li>murowanie ścian wewnętrznych działowych – 30-50 zł/m2,</li>
+                    <li>wykop ziemny pod fundamenty- 30-60 zł/mb,</li>
+                    <li>wykonanie fundamentu betonowego wraz z szalowaniem – 100 zł/m2,</li>
+                    <li>wykonanie zbrojenia do fundamentów – 40-60 zł/mb.</li>
+                </ul>
+                </div>
+
+                <p><strong>Cennik przeprowadzenia przykładowych prac remontowych netto.</strong></p>
+                <p>Powyższy cennik przedstawia wykaz najczęściej wykonywanych prac. Inne zlecenia wyceniamy indywidualnie po wizji lokalnej lub na podstawie dokumentacji architektonicznej.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-section offer-detail" id="gipsy" data-reveal>
+    <div class="container">
+        <div class="about-page__grid">
+            <div class="about-page__media">
+                <img src="{% static 'img/slider/slide-5.jpg' %}" alt="Gipsy, malowanie" loading="lazy">
+            </div>
+            <div class="about-page__content">
+                <h2>Gipsy, malowanie</h2>
+
+                <h3>Płyty gipsowe</h3>
+                <p>Proponujemy Państwu wykonanie podwieszanych sufitów i zabudowy wykonane z płyt kartonowo – gipsowych. To nowoczesne, dekoracyjne i trwałe wykończenie wnętrz, nadające im odpowiedni charakter. Zamówienia dostosowujemy indywidualnie do zapotrzebowania klienta. Odpowiednio dobieramy stelaż do montażu, przygotowujemy konstrukcję, do której montujemy płyty. Podejmujemy się wykonania każdego, nawet najbardziej nietypowego projektu. Gwarantujemy solidność wykonania i estetyczne wykończenie.</p>
+                <p>Zabudowy wykonane z płyt kartonowo–gipsowych, ścianki działowe, obniżane sufity czy półki są wyjątkowo estetyczne i praktyczne. To nowoczesny sposób na poprawę wyglądu wnętrza i nadanie mu odpowiedniego charakteru. Podwieszane sufity dodają prestiżu każdemu wnętrzu pozwalając jednocześnie na ukrycie wad istniejących stropów. Zastosowanie skosów, podcieni i łuków znacznie urozmaicą wnętrze. W zabudowanych powierzchniach można schować przewody instalacyjne, instalację wodną lub rury od centralnego ogrzewania.</p>
+
+                <h3>Malowanie</h3>
+                <p>Od wieków wiadomo, że dobrze kolorystyka pomieszczeń nie tylko pozwala nadać wnętrzu doskonały efekt, ale także potrafi ukryć wady pomieszczenia. Przy doborze farby warto wziąć pod uwagę jej trwałość i właściwości, odporność na zabrudzenia i zmywanie, zastosowanie. To znacznie ułatwi pielęgnację ściany w przyszłości i jej przyszłe odświeżanie. Oferujemy Państwu pomoc w doborze farb, zgodnie z przeznaczeniem pomieszczeń, gęstością, siłą krycia i dopasujemy farbę o odpowiedniej paro - przepuszczalności.</p>
+
+                <h3>Cennik usług</h3>
+                <div class="offer-detail__pricebox">
+                <ul class="offer-detail__list">
+                    <li>sufit podwieszany prosty – 100 zł/m2,</li>
+                    <li>sufit podwieszany wielopoziomowy – 120-150 zł/m2,</li>
+                    <li>sufit w różnych kształtach – od 150 zł/m2,</li>
+                    <li>płyta gk na klej – 50 zł/m2,</li>
+                    <li>płyta gk montowana na stelażu – 50 zł/m2,</li>
+                    <li>ścianka działowa gk z wypełnieniem wełną mineralną – 70 zł/m2,</li>
+                    <li>ścianka działowa z podwójną płytą gk – 80 zł/m2,</li>
+                    <li>zabudowy gk – 100 zł/mb,</li>
+                    <li>ocieplenie poddasza (wełna, folia, płyta gk na stelażu) – od 100 zł/m2,</li>
+                    <li>drobne szpachlowanie ścian i sufitów – 10 zł/m2,</li>
+                    <li>gruntowanie ścian i sufitów – 2 zł/m2,</li>
+                    <li>równanie ścian (pod gładź) do 1 cm – 25 zł/m2,</li>
+                    <li>równanie ścian (pod gładź) do 3 cm – 40 zł/m2,</li>
+                    <li>równanie ścian (pod gładź) od 3 – 5 cm – 50 zł/m2,</li>
+                    <li>wykonanie gładzi gipsowej – od 25 zł/m2,</li>
+                    <li>usunięcie starych tapet – 5 zł/m2,</li>
+                    <li>skrobanie starych powłok malarskich – 10-15 zł/m2,</li>
+                    <li>tapetowanie ścian – 20-30 zł/m2,</li>
+                    <li>malowanie na jeden kolor ścian i sufitów do pełnego pokrycia – 10 zł/m2,</li>
+                    <li>malowanie na kolor do pełnego pokrycia – 10-14 zł/m2,</li>
+                    <li>malowanie grzejników – 8 zł/żeberko,</li>
+                    <li>malowanie rur – 5 zł/mb,</li>
+                    <li>malowanie na olejno lamperii, podłóg – 25 zł/m2,</li>
+                    <li>malowanie elewacji – od 20 zł/m2,</li>
+                </ul>
+                </div>
+
+                <p><strong>Cennik przeprowadzenia przykładowych prac remontowych netto.</strong></p>
+                <p>Powyższy cennik przedstawia wykaz najczęściej wykonywanych prac. Inne zlecenia wyceniamy indywidualnie po wizji lokalnej lub na podstawie dokumentacji architektonicznej.</p>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
