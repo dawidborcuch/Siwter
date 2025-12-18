@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             splash.classList.add('is-hidden');
             document.body.classList.remove('is-splash-active');
             window.setTimeout(() => splash.remove(), 500);
-        }, 1500);
+        }, 1000);
     }
 
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');

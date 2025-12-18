@@ -1542,7 +1542,7 @@ img {
 .breadcrumb a {
     color: #222;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 400; /* bez pogrubienia, taki sam styl jak reszta */
 }
 
 .breadcrumb a:hover {
@@ -1556,7 +1556,7 @@ img {
 
 .breadcrumb [aria-current="page"] {
     color: #444;
-    font-weight: 800;
+    font-weight: 400; /* bez pogrubienia */
 }
 
 /* Gallery: tylko pasek breadcrumb na tle jak stopka */
