@@ -1,12 +1,44 @@
 {% extends "base.html" %}
 
-{% block content %}
-<section class="hero">
-    <div class="container">
-        <h2>Usługi remontowo-budowlane Warszawa</h2>
-        <p class="hero-subtitle">Kompleksowa realizacja remontów</p>
+{% block header_slider %}
+{% load static %}
+<section class="hero-carousel" aria-label="Karuzela zdjęć">
+    <div class="hero-carousel__viewport">
+        <div class="hero-carousel__track" data-carousel-track>
+            <div class="hero-carousel__slide is-active" data-carousel-slide>
+                <img src="{% static 'img/slider/slide-1.jpg' %}" alt="Realizacje remontowe - 1" loading="eager">
+            </div>
+            <div class="hero-carousel__slide" data-carousel-slide>
+                <img src="{% static 'img/slider/slide-2.jpg' %}" alt="Realizacje remontowe - 2" loading="lazy">
+            </div>
+            <div class="hero-carousel__slide" data-carousel-slide>
+                <img src="{% static 'img/slider/slide-3.jpg' %}" alt="Realizacje remontowe - 3" loading="lazy">
+            </div>
+            <div class="hero-carousel__slide" data-carousel-slide>
+                <img src="{% static 'img/slider/slide-4.jpg' %}" alt="Realizacje remontowe - 4" loading="lazy">
+            </div>
+            <div class="hero-carousel__slide" data-carousel-slide>
+                <img src="{% static 'img/slider/slide-5.jpg' %}" alt="Realizacje remontowe - 5" loading="lazy">
+            </div>
+            <div class="hero-carousel__slide" data-carousel-slide>
+                <img src="{% static 'img/slider/slide-6.jpg' %}" alt="Realizacje remontowe - 6" loading="lazy">
+            </div>
+            <div class="hero-carousel__slide" data-carousel-slide>
+                <img src="{% static 'img/slider/slide-7.jpg' %}" alt="Realizacje remontowe - 7" loading="lazy">
+            </div>
+        </div>
+
+        <button class="hero-carousel__arrow hero-carousel__arrow--prev" type="button" aria-label="Poprzednie zdjęcie" data-carousel-prev>
+            ‹
+        </button>
+        <button class="hero-carousel__arrow hero-carousel__arrow--next" type="button" aria-label="Następne zdjęcie" data-carousel-next>
+            ›
+        </button>
     </div>
 </section>
+{% endblock %}
+
+{% block content %}
 {% endblock %}
 
 
