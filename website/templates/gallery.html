@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Galeria - Siwter{% endblock %}
+{% block meta_description %}Galeria realizacji Siwter – zdjęcia naszych prac remontowo-budowlanych.{% endblock %}
 {% block content %}
 <section class="page-header page-header--breadcrumb-only">
     <div class="container">
@@ -11,13 +12,13 @@
     </div>
 </section>
 
-<section class="gallery-page">
+<section class="gallery-page" data-reveal>
     <div class="container">
         <div class="gallery-grid">
             {% for img in images %}
                 <figure class="gallery-item">
                     <a class="gallery-link" href="{{ img.image.url }}">
-                        <img src="{{ img.image.url }}" alt="Zdjęcie galerii" loading="lazy">
+                        <img src="{% if img.thumbnail %}{{ img.thumbnail.url }}{% else %}{{ img.image.url }}{% endif %}" alt="Zdjęcie galerii" loading="lazy" decoding="async">
                     </a>
                 </figure>
             {% empty %}

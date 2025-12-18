@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Siwter - Firma remontowo-budowlana{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20251218-19">
+    <meta name="description" content="{% block meta_description %}Siwter – usługi remontowo-budowlane. Kompleksowe wykończenia i remonty. Pomiar i wycena gratis.{% endblock %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20251218-21">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -18,7 +19,7 @@
                     </div>
                     <nav class="header-cta" aria-label="Menu górne">
                         <ul class="top-menu">
-                            <li><a href="#" class="header-cta-link">Wycena online</a></li>
+                            <li><a href="{% url 'contact' %}#wycena-online" class="header-cta-link">Wycena online</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -179,7 +180,7 @@
         </div>
     </footer>
 
-    <script src="{% static 'js/main.js' %}?v=20251218-4"></script>
+    <script src="{% static 'js/main.js' %}?v=20251218-6"></script>
 </body>
 </html>
 

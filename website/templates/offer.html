@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 {% block title %}Oferta - Siwter{% endblock %}
+{% block meta_description %}Oferta Siwter: prace murarskie, gipsy i malowanie, montaż, podłogi, glazura oraz instalacje. Pomiar i wycena gratis.{% endblock %}
 {% block content %}
-<section class="page-header"><div class="container"><h1>Oferta</h1></div></section>
+<section class="page-header page-header--breadcrumb-only">
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Aktualne miejsce">
+            <a href="{% url 'index' %}">Strona główna</a>
+            <span class="breadcrumb__sep">→</span>
+            <span aria-current="page">Oferta</span>
+            <span class="breadcrumb__sep breadcrumb__sep--section" aria-hidden="true">→</span>
+            <span class="breadcrumb__section" aria-current="page" hidden></span>
+        </nav>
+    </div>
+</section>
 {% endblock %}
 
 

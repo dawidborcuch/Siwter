@@ -1,10 +1,19 @@
 {% extends "base.html" %}
 {% block title %}O Nas - Siwter{% endblock %}
+{% block meta_description %}Poznaj firmę Siwter – kompleksowe remonty i wykończenia wnętrz. Pomiar i wycena gratis. Zapraszamy do współpracy.{% endblock %}
 {% block content %}
 {% load static %}
-<section class="page-header"><div class="container"><h1>O nas</h1></div></section>
+<section class="page-header page-header--breadcrumb-only">
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Aktualne miejsce">
+            <a href="{% url 'index' %}">Strona główna</a>
+            <span class="breadcrumb__sep">→</span>
+            <span aria-current="page">O nas</span>
+        </nav>
+    </div>
+</section>
 
-<section class="about-page">
+<section class="about-page" data-reveal>
     <div class="container">
         <div class="about-page__grid">
             <div class="about-page__media">

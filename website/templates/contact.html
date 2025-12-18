@@ -1,7 +1,52 @@
 {% extends "base.html" %}
 {% block title %}Kontakt - Siwter{% endblock %}
+{% block meta_description %}Kontakt z firmą Siwter. Wycena online – wyślij zapytanie, a wrócimy z odpowiedzią.{% endblock %}
 {% block content %}
-<section class="page-header"><div class="container"><h1>Kontakt</h1></div></section>
+<section class="page-header page-header--breadcrumb-only">
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Aktualne miejsce">
+            <a href="{% url 'index' %}">Strona główna</a>
+            <span class="breadcrumb__sep">→</span>
+            <span aria-current="page">Kontakt</span>
+        </nav>
+    </div>
+</section>
+
+<section class="contact-page" id="wycena-online" data-reveal>
+    <div class="container">
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="message message--{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <h2>Wycena online</h2>
+        <form class="contact-form" method="post" action="{% url 'contact' %}#wycena-online">
+            {% csrf_token %}
+            <div class="form-grid">
+                <label>
+                    <span>Imię i nazwisko *</span>
+                    <input type="text" name="name" required>
+                </label>
+                <label>
+                    <span>Telefon</span>
+                    <input type="text" name="phone">
+                </label>
+                <label>
+                    <span>E-mail</span>
+                    <input type="email" name="email">
+                </label>
+                <label class="form-grid__full">
+                    <span>Opis prac / zakres</span>
+                    <textarea name="message" rows="5"></textarea>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-primary--yellow">Wyślij zapytanie</button>
+        </form>
+    </div>
+</section>
 {% endblock %}
 
 

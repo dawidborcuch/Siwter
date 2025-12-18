@@ -58,15 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form submission handling
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Dziękujemy za wiadomość! Skontaktujemy się z Państwem wkrótce.');
-            this.reset();
-        });
-    }
+    // Contact/quote form is handled server-side (Django POST) now
 
     // Hero carousel
     const track = document.querySelector('[data-carousel-track]');
@@ -123,6 +115,26 @@ document.addEventListener('DOMContentLoaded', function() {
         start();
     }
 
+    // Reveal animations on scroll (IntersectionObserver)
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
+
+    if (!prefersReduced && revealEls.length > 0 && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+        revealEls.forEach((el) => io.observe(el));
+    } else {
+        // fallback: show immediately
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+    }
+
     // Gallery lightbox (click to open full size)
     const lightbox = document.querySelector('.lightbox');
     const lightboxImg = lightbox ? lightbox.querySelector('.lightbox__img') : null;
@@ -156,6 +168,38 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
         });
+    }
+
+    // Breadcrumb depth for Oferta sections (hash-based)
+    const offerSectionEl = document.querySelector('.breadcrumb__section');
+    const offerSepEl = document.querySelector('.breadcrumb__sep--section');
+    if (offerSectionEl && offerSepEl) {
+        const map = {
+            '#murarskie': 'Prace murarsko – wyburzeniowe',
+            '#gipsy': 'Gipsy, malowanie',
+            '#montaz': 'Prace montażowe',
+            '#podlogi': 'Podłogi',
+            '#glazura': 'Glazura, terakota',
+            '#instalacje': 'Instalacje wod.-kan., biały montaż, obudowy',
+            '#elektryczne': 'Instalacje elektryczne',
+        };
+
+        const updateOfferBreadcrumb = () => {
+            const h = window.location.hash || '';
+            const label = map[h];
+            if (label) {
+                offerSectionEl.textContent = label;
+                offerSectionEl.hidden = false;
+                offerSepEl.style.display = '';
+            } else {
+                offerSectionEl.textContent = '';
+                offerSectionEl.hidden = true;
+                offerSepEl.style.display = 'none';
+            }
+        };
+
+        updateOfferBreadcrumb();
+        window.addEventListener('hashchange', updateOfferBreadcrumb);
     }
 });
 

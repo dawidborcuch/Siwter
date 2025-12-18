@@ -1,10 +1,106 @@
 {% extends "base.html" %}
 {% block title %}Polityka prywatności - Siwter{% endblock %}
+{% block meta_description %}Polityka prywatności serwisu Siwter.{% endblock %}
 {% block content %}
-<section class="page-header"><div class="container"><h1>Polityka Prywatności</h1></div></section>
-<section class="about-section">
+<section class="page-header page-header--breadcrumb-only">
     <div class="container">
-        <p>Treść polityki prywatności zostanie uzupełniona w kolejnym kroku.</p>
+        <nav class="breadcrumb" aria-label="Aktualne miejsce">
+            <a href="{% url 'index' %}">Strona główna</a>
+            <span class="breadcrumb__sep">→</span>
+            <span aria-current="page">Polityka Prywatności</span>
+        </nav>
+    </div>
+</section>
+<section class="about-section" data-reveal>
+    <div class="container">
+        <h2>Zasady ochrony danych osobowych</h2>
+        <p>W związku z wejściem w życie 25 maja 2018 roku rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE, zwanego RODO, realizując obowiązek informacyjny, pragniemy poinformować o Państwa danych osobowych oraz o zasadach na jakich odbywa się przetwarzanie.</p>
+
+        <p>Działając na podstawie art. 13 RODO informujemy, że:</p>
+
+        <ul>
+            <li>Administratorem danych osobowych jest firma: <strong>SIWTER Hovhannes Terteryan</strong>, z siedzibą w <strong>ul. Folwarczna 23A, 07-130 Łochów</strong>, NIP: <strong>8241817155</strong>.</li>
+            <li>Przetwarzanie danych osobowych odbywa się w oparciu o jedną z przesłanek określonych w art. 6 RODO.</li>
+        </ul>
+
+        <p>Dane osobowe przetwarzane są w szczególności w celu:</p>
+        <ul>
+            <li>obsługi zapytań, które są do nas kierowane (np. przez formularz kontaktowy / wyceny online),</li>
+            <li>przygotowania oferty,</li>
+            <li>zawarcia i wykonania umowy,</li>
+            <li>kontaktowania się z Państwem w celach związanych ze świadczeniem usług,</li>
+            <li>wykonania ciążących na administratorze obowiązków prawnych, w szczególności: wystawianie i przechowywanie faktur/dokumentów sprzedaży i innych dokumentów księgowych, rozpatrywanie reklamacji oraz obowiązków podatkowych i rachunkowych,</li>
+            <li>windykacji należności,</li>
+            <li>przechowywania danych dla celów archiwizacyjnych.</li>
+        </ul>
+
+        <p>Dane osobowe udostępniane są następującym odbiorcom:</p>
+        <ul>
+            <li>pracownicy / współpracownicy firmy SIWTER Hovhannes Terteryan,</li>
+            <li>podmioty świadczące usługi księgowe, informatyczne, windykacyjne,</li>
+            <li>operatorzy pocztowi i kurierzy,</li>
+            <li>organy uprawnione do otrzymania Pani/Pana danych osobowych na podstawie przepisów prawa.</li>
+        </ul>
+
+        <p>Pani/Pana dane osobowe nie będą przekazywane do państw trzecich ani organizacji międzynarodowych.</p>
+        <p>Państwa dane osobowe przetwarzane będą przez okres niezbędny do realizacji celu. Dane osobowe przechowywane będą przez okres adekwatny i nie dłuższy od okresów zgodnych z aktualnie obowiązującymi przepisami prawa.</p>
+
+        <p>W związku z przetwarzaniem danych osobowych przysługuje Pani/Panu prawo do:</p>
+        <ul>
+            <li>dostępu do treści danych, na podstawie art. 15 RODO,</li>
+            <li>sprostowania danych, na podstawie art. 16 RODO,</li>
+            <li>usunięcia danych, na podstawie art. 17 RODO,</li>
+            <li>ograniczenia przetwarzania danych, na podstawie art. 18 RODO,</li>
+            <li>przenoszenia danych, na podstawie art. 20 RODO,</li>
+            <li>wniesienia sprzeciwu wobec przetwarzania danych, na podstawie art. 21 RODO.</li>
+        </ul>
+
+        <p>Jeśli przetwarzanie odbywa się na podstawie zgody, przysługuje Pani/Panu prawo do cofnięcia tej zgody w dowolnym momencie, bez wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem.</p>
+
+        <p>W przypadku uznania, iż przetwarzanie danych osobowych przez firmę <strong>SIWTER Hovhannes Terteryan</strong>, narusza przepisy RODO, ma Pani/Pan prawo wniesienia skargi do organu nadzorczego, czyli do Prezesa Urzędu Ochrony Danych Osobowych.</p>
+
+        <h2>Polityka dotycząca plików Cookies</h2>
+        <h3>1. Informacje ogólne</h3>
+        <p>Operatorem strony działającej pod adresem <strong>siwter.pl</strong> jest <strong>SIWTER Hovhannes Terteryan</strong>, z siedzibą w <strong>ul. Folwarczna 23A, 07-130 Łochów</strong>.</p>
+        <p>Serwis realizuje funkcje pozyskiwania informacji o użytkownikach i ich zachowaniu w następujący sposób:</p>
+        <ul>
+            <li>poprzez dobrowolnie wprowadzone w formularzach informacje,</li>
+            <li>poprzez zapisywanie w urządzeniach końcowych pliki cookie (tzw. „ciasteczka”),</li>
+            <li>poprzez gromadzenie logów serwera www przez operatora hostingowego <strong>OVHcloud</strong>.</li>
+        </ul>
+
+        <h3>2. Informacje w formularzach</h3>
+        <ul>
+            <li>Serwis zbiera informacje podane dobrowolnie przez użytkownika.</li>
+            <li>Serwis może zapisać ponadto informacje o parametrach połączenia (oznaczenie czasu, adres IP).</li>
+            <li>Dane w formularzu nie są udostępniane podmiotom trzecim inaczej, niż za zgodą użytkownika.</li>
+            <li>Dane podane w formularzu są przetwarzane w celu wynikającym z funkcji konkretnego formularza, np. w celu dokonania procesu obsługi zgłoszenia serwisowego lub kontaktu handlowego / przygotowania wyceny.</li>
+            <li>Dane podane w formularzach mogą być przekazane podmiotom technicznie realizującym niektóre usługi – w szczególności dotyczy to przekazywania informacji o posiadaczu rejestrowanej domeny do podmiotów będących operatorami domen internetowych (np. NASK) lub też innych podmiotów, z którymi Operator Serwisu w tym zakresie współpracuje.</li>
+        </ul>
+
+        <h3>3. Informacja o plikach cookies</h3>
+        <p>Serwis korzysta z plików cookies.</p>
+        <p>Pliki cookies (tzw. „ciasteczka”) stanowią dane informatyczne, w szczególności pliki tekstowe, które przechowywane są w urządzeniu końcowym Użytkownika Serwisu i przeznaczone są do korzystania ze stron internetowych Serwisu. Cookies zazwyczaj zawierają nazwę strony internetowej, z której pochodzą, czas przechowywania ich na urządzeniu końcowym oraz unikalny numer.</p>
+        <p>Podmiotem zamieszczającym na urządzeniu końcowym Użytkownika Serwisu pliki cookies oraz uzyskującym do nich dostęp jest operator Serwisu.</p>
+
+        <h3>4. Logi serwera</h3>
+        <p>Informacje o niektórych zachowaniach użytkowników podlegają logowaniu w warstwie serwerowej. Dane te są wykorzystywane wyłącznie w celu administrowania serwisem oraz w celu zapewnienia jak najbardziej sprawnej obsługi świadczonych usług hostingowych.</p>
+        <p>Przeglądane zasoby identyfikowane są poprzez adresy URL. Ponadto zapisowi mogą podlegać:</p>
+        <ul>
+            <li>czas nadejścia zapytania,</li>
+            <li>czas wysłania odpowiedzi,</li>
+            <li>nazwę stacji klienta – identyfikacja realizowana przez protokół HTTP,</li>
+            <li>informacje o błędach jakie nastąpiły przy realizacji transakcji HTTP,</li>
+            <li>adres URL strony poprzednio odwiedzanej przez użytkownika (referer link) – w przypadku gdy przejście do Serwisu nastąpiło przez odnośnik,</li>
+            <li>informacje o przeglądarce użytkownika,</li>
+            <li>informacje o adresie IP.</li>
+        </ul>
+        <p>Dane powyższe nie są kojarzone z konkretnymi osobami przeglądającymi strony. Dane powyższe są wykorzystywane jedynie dla celów administrowania serwerem.</p>
+
+        <h3>5. Udostępnienie danych</h3>
+        <p>Dane nie podlegają udostępnieniu podmiotom zewnętrznym.</p>
+        <p>Dane umożliwiające identyfikację osoby fizycznej są udostępniane wyłącznie za zgodą tej osoby.</p>
+        <p>Operator może mieć obowiązek udzielania informacji zebranych przez Serwis upoważnionym organom na podstawie zgodnych z prawem żądań w zakresie wynikającym z żądania.</p>
     </div>
 </section>
 {% endblock %}

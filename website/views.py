@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import redirect, render
 
-from .models import GalleryImage
+from .models import GalleryImage, QuoteRequest
 
 
 def index(request):
@@ -25,6 +26,19 @@ def pricing(request):
 
 
 def contact(request):
+    if request.method == "POST":
+        name = (request.POST.get("name") or "").strip()
+        phone = (request.POST.get("phone") or "").strip()
+        email = (request.POST.get("email") or "").strip()
+        message = (request.POST.get("message") or "").strip()
+
+        if not name:
+            messages.error(request, "Proszę podać imię i nazwisko.")
+        else:
+            QuoteRequest.objects.create(name=name, phone=phone, email=email, message=message)
+            messages.success(request, "Dziękujemy! Twoje zapytanie o wycenę zostało zapisane. Skontaktujemy się wkrótce.")
+            return redirect("contact")
+
     return render(request, "contact.html")
 
 
