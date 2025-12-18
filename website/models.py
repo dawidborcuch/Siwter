@@ -73,3 +73,16 @@ class QuoteRequest(models.Model):
         return f"Wycena #{self.pk} - {self.name}"
 
 
+class PageView(models.Model):
+    path = models.CharField("Ścieżka", max_length=500)
+    created_at = models.DateTimeField("Utworzono", auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Odwiedziny"
+        verbose_name_plural = "Odwiedziny"
+
+    def __str__(self) -> str:
+        return f"{self.path} @ {self.created_at:%Y-%m-%d %H:%M}"
+
+
