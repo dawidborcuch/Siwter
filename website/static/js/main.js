@@ -1,7 +1,8 @@
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
+    const mainNav = document.querySelector('.navigation');
+
     
     if (mobileMenuToggle && mainNav) {
         mobileMenuToggle.addEventListener('click', function() {
@@ -9,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.toggle('active');
         });
     }
-    
+
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {

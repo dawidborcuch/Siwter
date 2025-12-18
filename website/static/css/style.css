@@ -119,41 +119,152 @@ img {
 
 .header-bottom {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 15px 0;
+    flex-wrap: nowrap; /* wszystko w jednej linii na desktopie */
 }
 
-.logo h1 {
-    font-size: 28px;
-    color: #2c3e50;
-    font-weight: bold;
-}
-
-.main-nav .nav-logo a {
-    display: inline-flex;
+/* Ikony/kontakt po prawej od logo (styl jak budwaw) */
+.header-widgets {
+    display: flex;
     align-items: center;
+    gap: 12px;
+    margin-left: 0;
+    padding-left: 0;
+    max-width: 100%;
+    flex-wrap: nowrap; /* wszystko w jednej linii */
+    justify-content: center;
+    min-width: 0;
+}
+
+/* Na desktopie nie zawijamy */
+.header-widgets .widget-icon-box {
+    flex: 0 0 auto;
+    min-width: 0;
+}
+
+.icon-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #2c3e50;
+}
+
+.icon-box i.fa {
+    color: #9a9a9a; /* bardziej wyszarzone ikony */
+    width: 28px;
+}
+
+.icon-box__title {
+    font-size: 14px;
+    line-height: 1.1;
+    margin: 0;
+    font-weight: 700;
+}
+
+.icon-box__subtitle {
+    font-size: 13px;
+    color: #7f8c8d;
+}
+
+.icon-box__subtitle a {
+    color: inherit;
     text-decoration: none;
 }
 
-.main-nav .nav-logo img {
-    display: block;
-    max-height: 32px;
-    width: auto;
+.icon-box__subtitle a:hover {
+    text-decoration: underline;
+}
+
+/* Social icons usunięte */
+
+/* Jeśli robi się za ciasno: logo na środek, dane pod logo */
+@media (max-width: 1100px) {
+    .header-bottom {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .header-bottom .logo {
+        width: 100%;
+        margin-left: 0; /* bez wysuwania poza container */
+        display: flex;
+        justify-content: center;
+    }
+
+    .header-widgets {
+        width: 100%;
+        padding-left: 0;
+        justify-content: center;
+        flex-wrap: wrap; /* dane mogą się łamać pod logo */
+    }
+}
+
+
+/* Menu ma być w pasku poniżej logo */
+.navigation {
+    padding: 10px 0 15px 0;
+}
+
+/* Brand (logo + nazwa) pod górnym paskiem */
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; /* napis bliżej logo */
+    text-decoration: none;
+}
+
+.img-responsive {
+    max-width: 100%;
     height: auto;
+}
+
+.brand-logo {
+    width: 374px; /* 2x */
+    height: auto;
+    max-height: 112px; /* 2x */
     object-fit: contain;
 }
 
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    align-items: center;
+.brand-name {
+    font-size: 28px;
+    color: #2c3e50;
+    font-weight: bold;
+    line-height: 1;
 }
 
-.main-nav a {
+/* Wyrównanie startu logo do startu tekstu w top-barze */
+.header-bottom .logo {
+    padding-left: 0;
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .header-bottom .logo {
+        margin-left: 0; /* bez ryzyka poziomego scrolla na małych ekranach */
+    }
+}
+
+/* usunięto logo z navbara – jest w brand po lewej */
+
+.navigation--main {
+    list-style: none;
+    display: flex;
+    gap: 0; /* brak przerw między prostokątami */
+    align-items: center;
+    justify-content: center; /* wyśrodkuj menu */
+    flex-wrap: wrap;
+}
+
+.navigation--main a {
     text-decoration: none;
-    color: #333;
+    color: #fff;
     font-weight: 500;
     font-size: 14px;
     text-transform: uppercase;
@@ -161,19 +272,74 @@ img {
     position: relative;
 }
 
-.main-nav a:hover {
+.navigation--main a:hover {
     color: #3498db;
 }
 
-.main-nav li.has-submenu {
+/* Kafelki menu (czarne prostokąty) */
+.navigation--main > li > a {
+    display: block;
+    padding: 32px 53px; /* -25% wysokości (pion) */
+    background: #222; /* ciemny szary */
+    color: #bbbbbb; /* szary tekst na czarnym */
+    border-radius: 0;
+    font-weight: 700; /* pogrubienie */
+    position: relative; /* dla strzałki OFERTA */
+}
+
+/* Desktop: kafelki mają wypełnić cały pasek bez luzu po bokach */
+@media (min-width: 769px) {
+    .navigation--main {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    .navigation--main > li {
+        flex: 1 1 0;
+    }
+
+    .navigation--main > li > a {
+        width: 100%;
+        text-align: center;
+        white-space: nowrap; /* żeby żółty kafelek nie łamał się na 2 linie */
+    }
+}
+
+.navigation--main > li > a:hover {
+    color: #bbbbbb;
+    background: #2a2a2a;
+}
+
+/* Strona główna (aktywny element) na żółto */
+.navigation--main > li.current-menu-item > a,
+.navigation--main > li.current_page_item > a {
+    background: #fcc71f;
+    color: #000; /* czarny tekst na żółtym */
+}
+
+.navigation--main li.menu-item-has-children {
     position: relative;
 }
 
-.main-nav li.has-submenu:hover .submenu {
+.navigation--main li.menu-item-has-children:hover .sub-menu {
     display: block;
 }
 
-.submenu {
+/* Strzałka pod "OFERTA" sugerująca rozwijane menu */
+.navigation--main li.menu-item-has-children > a::after {
+    content: "▼";
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    font-size: 10px;
+    line-height: 1;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.sub-menu {
     display: none;
     position: absolute;
     top: 100%;
@@ -185,11 +351,11 @@ img {
     z-index: 1000;
 }
 
-.submenu li {
+.sub-menu li {
     margin: 0;
 }
 
-.submenu a {
+.sub-menu a {
     display: block;
     padding: 10px 20px;
     text-transform: none;
@@ -796,7 +962,7 @@ img {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .main-nav {
+    .navigation {
         display: none;
         position: absolute;
         top: 100%;
@@ -807,17 +973,18 @@ img {
         padding: 20px;
     }
     
-    .main-nav.mobile-active {
+    .navigation.mobile-active {
         display: block;
     }
     
-    .main-nav ul {
+    .navigation--main {
         flex-direction: column;
         gap: 15px;
         align-items: flex-start;
+        justify-content: flex-start;
     }
     
-    .main-nav li.has-submenu .submenu {
+    .navigation--main li.menu-item-has-children .sub-menu {
         position: static;
         box-shadow: none;
         padding: 10px 0 0 20px;
@@ -825,6 +992,15 @@ img {
     
     .mobile-menu-toggle {
         display: flex;
+    }
+
+    .header-widgets-desktop {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-left: 0;
+        gap: 14px;
     }
     
     .mobile-menu-toggle.active span:nth-child(1) {

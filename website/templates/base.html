@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Siwter - Firma remontowo-budowlana{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20251218">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20251218-2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header class="header">
@@ -26,37 +27,83 @@
         <div class="container">
             <div class="header-bottom">
                 <div class="logo">
-                    <h1>Siwter</h1>
+                    <a href="{% url 'index' %}" class="brand" aria-label="Strona główna">
+                        <img
+                            src="{% static 'img/SIWTER_logo_RGB.png' %}"
+                            alt="Siwter"
+                            class="img-responsive brand-logo"
+                            width="187"
+                            height="112"
+                        >
+                    </a>
                 </div>
-                <nav class="main-nav">
-                    <ul>
-                        <li class="nav-logo">
-                            <a href="{% url 'index' %}" aria-label="Strona główna">
-                                <img src="{% static 'img/SIWTER_logo_RGB.png' %}" alt="Siwter" height="32" style="height:32px;width:auto;max-width:160px;">
-                            </a>
-                        </li>
-                        <li><a href="{% url 'index' %}">STRONA GŁÓWNA</a></li>
-                        <li><a href="{% url 'about' %}">O NAS</a></li>
-                        <li class="has-submenu">
-                            <a href="{% url 'offer' %}">OFERTA</a>
-                            <ul class="submenu">
-                                <li><a href="{% url 'offer' %}#murarskie">Prace murarsko – wyburzeniowe</a></li>
-                                <li><a href="{% url 'offer' %}#gipsy">Gipsy, malowanie</a></li>
-                                <li><a href="{% url 'offer' %}#montaz">Prace montażowe</a></li>
-                                <li><a href="{% url 'offer' %}#podlogi">Podłogi</a></li>
-                                <li><a href="{% url 'offer' %}#glazura">Glazura, terakota</a></li>
-                                <li><a href="{% url 'offer' %}#instalacje">Instalacje wod.-kan., biały montaż, obudowy</a></li>
-                                <li><a href="{% url 'offer' %}#elektryczne">Instalacje elektryczne</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{% url 'gallery' %}">GALERIA</a></li>
-                        <li><a href="{% url 'pricing' %}">CENNIK</a></li>
-                        <li><a href="{% url 'contact' %}">KONTAKT</a></li>
-                    </ul>
-                </nav>
+                <div class="header-widgets header-widgets-desktop">
+                    <div class="widget widget-icon-box">
+                        <div class="icon-box">
+                            <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+                            <div class="icon-box__text">
+                                <h4 class="icon-box__title">ul. Folwarczna 23A</h4>
+                                <span class="icon-box__subtitle">07-130 Łochów</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget widget-icon-box">
+                        <div class="icon-box">
+                            <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+                            <div class="icon-box__text">
+                                <h4 class="icon-box__title">Telefon</h4>
+                                <span class="icon-box__subtitle"><a href="tel:+48730730473">+48 730 730 473</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget widget-icon-box">
+                        <div class="icon-box">
+                            <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+                            <div class="icon-box__text">
+                                <h4 class="icon-box__title">E-mail</h4>
+                                <span class="icon-box__subtitle"><a href="mailto:siwterbiuro@gmail.com">siwterbiuro@gmail.com</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <button class="mobile-menu-toggle" aria-label="Menu">
                     <span></span><span></span><span></span>
                 </button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="navigation" role="navigation">
+                <div class="collapse navbar-collapse" id="buildpress-navbar-collapse">
+                    <ul id="menu-main-menu" class="navigation--main js-dropdown">
+                        <li class="menu-item current-menu-item current_page_item">
+                            <a href="{% url 'index' %}">STRONA GŁÓWNA</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{% url 'about' %}">O NAS</a>
+                        </li>
+                        <li class="menu-item menu-item-has-children">
+                            <a href="{% url 'offer' %}">OFERTA</a>
+                            <ul class="sub-menu">
+                            <li><a href="{% url 'offer' %}#murarskie">Prace murarsko – wyburzeniowe</a></li>
+                            <li><a href="{% url 'offer' %}#gipsy">Gipsy, malowanie</a></li>
+                            <li><a href="{% url 'offer' %}#montaz">Prace montażowe</a></li>
+                            <li><a href="{% url 'offer' %}#podlogi">Podłogi</a></li>
+                            <li><a href="{% url 'offer' %}#glazura">Glazura, terakota</a></li>
+                            <li><a href="{% url 'offer' %}#instalacje">Instalacje wod.-kan., biały montaż, obudowy</a></li>
+                            <li><a href="{% url 'offer' %}#elektryczne">Instalacje elektryczne</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{% url 'gallery' %}">GALERIA</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{% url 'pricing' %}">CENNIK</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{% url 'contact' %}">KONTAKT</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
@@ -65,7 +112,7 @@
         {% block content %}{% endblock %}
     </main>
 
-    <script src="{% static 'js/main.js' %}?v=20251218"></script>
+    <script src="{% static 'js/main.js' %}?v=20251218-1"></script>
 </body>
 </html>
 
