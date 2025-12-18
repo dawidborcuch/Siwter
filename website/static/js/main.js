@@ -122,5 +122,40 @@ document.addEventListener('DOMContentLoaded', function() {
         render();
         start();
     }
+
+    // Gallery lightbox (click to open full size)
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImg = lightbox ? lightbox.querySelector('.lightbox__img') : null;
+    const lightboxClose = lightbox ? lightbox.querySelector('.lightbox__close') : null;
+
+    const closeLightbox = () => {
+        if (!lightbox || !lightboxImg) return;
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImg.removeAttribute('src');
+    };
+
+    if (lightbox && lightboxImg && lightboxClose) {
+        document.addEventListener('click', (e) => {
+            const link = e.target && e.target.closest ? e.target.closest('.gallery-link') : null;
+            if (link) {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                if (!href) return;
+                lightboxImg.setAttribute('src', href);
+                lightbox.classList.add('is-open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                return;
+            }
+
+            // click outside image closes
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    }
 });
 

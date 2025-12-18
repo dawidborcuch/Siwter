@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import GalleryImage
+
 
 def index(request):
     return render(request, "index.html")
@@ -14,7 +16,8 @@ def offer(request):
 
 
 def gallery(request):
-    return render(request, "gallery.html")
+    images = GalleryImage.objects.filter(is_published=True).order_by("order", "-created_at")
+    return render(request, "gallery.html", {"images": images})
 
 
 def pricing(request):

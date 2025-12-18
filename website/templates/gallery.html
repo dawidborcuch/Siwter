@@ -1,7 +1,36 @@
 {% extends "base.html" %}
 {% block title %}Galeria - Siwter{% endblock %}
 {% block content %}
-<section class="page-header"><div class="container"><h1>Galeria</h1></div></section>
+<section class="page-header page-header--breadcrumb-only">
+    <div class="container">
+        <nav class="breadcrumb" aria-label="Aktualne miejsce">
+            <a href="{% url 'index' %}">Strona główna</a>
+            <span class="breadcrumb__sep">→</span>
+            <span aria-current="page">Galeria</span>
+        </nav>
+    </div>
+</section>
+
+<section class="gallery-page">
+    <div class="container">
+        <div class="gallery-grid">
+            {% for img in images %}
+                <figure class="gallery-item">
+                    <a class="gallery-link" href="{{ img.image.url }}">
+                        <img src="{{ img.image.url }}" alt="Zdjęcie galerii" loading="lazy">
+                    </a>
+                </figure>
+            {% empty %}
+                <p>Brak zdjęć w galerii. Dodaj zdjęcia w panelu admina.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<div class="lightbox" aria-hidden="true">
+    <button class="lightbox__close" type="button" aria-label="Zamknij">×</button>
+    <img class="lightbox__img" alt="Powiększone zdjęcie">
+</div>
 {% endblock %}
 
 
