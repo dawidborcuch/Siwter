@@ -1,5 +1,16 @@
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
+    // Splash screen on homepage (logo for 1.5s, then reveal)
+    const splash = document.querySelector('[data-splash]');
+    if (splash) {
+        document.body.classList.add('is-splash-active');
+        window.setTimeout(() => {
+            splash.classList.add('is-hidden');
+            document.body.classList.remove('is-splash-active');
+            window.setTimeout(() => splash.remove(), 500);
+        }, 1500);
+    }
+
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.querySelector('.navigation');
 

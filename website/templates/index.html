@@ -4,6 +4,9 @@
 
 {% block header_slider %}
 {% load static %}
+<div class="splash-overlay" data-splash aria-label="Ekran powitalny">
+    <img src="{% static 'img/SIWTER_logo_RGB.png' %}" alt="SIWTER" class="splash-overlay__logo" loading="eager">
+</div>
 <section class="hero-carousel" aria-label="Karuzela zdjęć">
     <div class="hero-carousel__viewport">
         <div class="hero-carousel__track" data-carousel-track>

@@ -16,6 +16,41 @@ html, body {
     overflow-x: hidden; /* usuwa dolny poziomy scrollbar */
 }
 
+/* Splash (tylko strona główna) */
+.splash-overlay {
+    position: fixed;
+    inset: 0;
+    background: #fff;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    transition: opacity 420ms ease, visibility 420ms ease;
+}
+
+.splash-overlay__logo {
+    width: min(620px, 82vw);
+    height: auto;
+    display: block;
+}
+
+.splash-overlay.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+body.is-splash-active {
+    overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .splash-overlay {
+        transition: none;
+    }
+}
+
 /* Slider jest absolutny (nie rezerwuje miejsca) — ta wartość jest ustawiana w JS,
    żeby treść strony zaczynała się realnie POD sliderem */
 main {
