@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const updateHeroCarouselTop = () => {
         const header = document.querySelector('header.header');
         const slider = document.querySelector('.hero-carousel');
+        const sliderViewport = document.querySelector('.hero-carousel__viewport');
         const firstMenuLink = document.querySelector('.navigation--main > li > a');
         if (!header || !slider || !firstMenuLink) return;
 
@@ -25,6 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // target: slider top = middle of menu tile (relative to header)
         const topPx = Math.max(0, Math.round((rLink.top - rHeader.top) + half));
         header.style.setProperty('--hero-carousel-top', `${topPx}px`);
+
+        // Push main content below the visible slider bottom (since slider is absolute)
+        if (sliderViewport) {
+            const rSlider = sliderViewport.getBoundingClientRect();
+            const push = Math.max(0, Math.round(rSlider.bottom - rHeader.bottom));
+            document.documentElement.style.setProperty('--hero-carousel-push', `${push}px`);
+        }
     };
 
     updateHeroCarouselTop();
