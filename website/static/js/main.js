@@ -182,5 +182,153 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Oferta breadcrumb is always 2-level now (no hash-based depth)
+
+    // Scroll Progress Bar
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+
+    const updateProgress = () => {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        progressBar.style.width = `${scrolled}%`;
+    };
+
+    window.addEventListener('scroll', updateProgress);
+    updateProgress();
+
+    // Scroll to Top Button
+    const scrollToTopBtn = document.createElement('button');
+    scrollToTopBtn.className = 'scroll-to-top';
+    scrollToTopBtn.innerHTML = '↑';
+    scrollToTopBtn.setAttribute('aria-label', 'Przewiń do góry');
+    document.body.appendChild(scrollToTopBtn);
+
+    const toggleScrollToTop = () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    };
+
+    window.addEventListener('scroll', toggleScrollToTop);
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Animated Counters
+    const animateCounter = (el, target, duration = 2000) => {
+        const start = 0;
+        const increment = target / (duration / 16);
+        let current = start;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                el.textContent = Math.round(target);
+                clearInterval(timer);
+            } else {
+                el.textContent = Math.round(current);
+            }
+        }, 16);
+    };
+
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (statNumbers.length > 0 && 'IntersectionObserver' in window) {
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    const target = parseInt(entry.target.dataset.target || entry.target.textContent);
+                    entry.target.dataset.animated = 'true';
+                    entry.target.textContent = '0';
+                    animateCounter(entry.target, target);
+                    statObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statNumbers.forEach((stat) => statObserver.observe(stat));
+    }
+
+    // Gallery Filters
+    const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+
+            // Update active state
+            filterButtons.forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Filter items
+            galleryItems.forEach((item) => {
+                const category = item.dataset.category || 'all';
+                if (filter === 'all' || category === filter) {
+                    item.style.display = '';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 10);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+
+    // Lazy Loading (bez blur - obrazy są już załadowane przez Django)
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Sprawdź zapisane preferencje lub użyj systemowych
+    const savedTheme = localStorage.getItem('theme');
+    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+    
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+    }
+    
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        });
+    }
+    
+    // Obserwuj zmiany preferencji systemowych (tylko jeśli użytkownik nie wybrał ręcznie)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+            if (e.matches) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        }
+    });
+
+    // Parallax Effect for Hero (subtle)
+    const heroSlides = document.querySelectorAll('.hero-carousel__slide img');
+    if (heroSlides.length > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            heroSlides.forEach((img) => {
+                const slide = img.closest('.hero-carousel__slide');
+                if (slide && slide.classList.contains('is-active')) {
+                    const rate = scrolled * 0.3;
+                    img.style.transform = `translateY(${rate}px)`;
+                }
+            });
+        });
+    }
 });
 

@@ -9,7 +9,7 @@
     <link rel="icon" href="{% static 'img/favicon.ico' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon-32x32.png' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20251218-26">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20251218-28">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -70,6 +70,11 @@
                             </div>
                         </div>
                     </div>
+                    <div class="widget widget-icon-box">
+                        <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Przełącz tryb ciemny">
+                            <i class="fa fa-moon-o" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
                 <button class="mobile-menu-toggle" aria-label="Menu">
                     <span></span><span></span><span></span>
@@ -116,6 +121,12 @@
     <main>
         {% block content %}{% endblock %}
     </main>
+
+    <!-- Floating Action Button -->
+    <a href="{% url 'contact' %}#wycena-online" class="fab" aria-label="Szybki kontakt">
+        <i class="fa fa-phone" aria-hidden="true"></i>
+        <span class="fab__tooltip">Wycena online</span>
+    </a>
 
     <footer class="site-footer" aria-label="Stopka">
         <div class="site-footer__top">
@@ -183,7 +194,7 @@
         </div>
     </footer>
 
-    <script src="{% static 'js/main.js' %}?v=20251218-9"></script>
+    <script src="{% static 'js/main.js' %}?v=20251218-11"></script>
 </body>
 </html>
 
