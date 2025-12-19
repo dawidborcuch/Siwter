@@ -74,4 +74,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Allow iframes from Google Maps
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 

@@ -9,8 +9,6 @@
       <change beforePath="$PROJECT_DIR$/website/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/website/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/website/static/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/templates/offer.html" beforeDir="false" afterPath="$PROJECT_DIR$/website/templates/offer.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +173,23 @@
       <option name="project" value="LOCAL" />
       <updated>1766138450283</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="init">
+      <option name="closed" value="true" />
+      <created>1766138593480</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1766138593480</updated>
+    </task>
+    <task id="LOCAL-00017" summary="init">
+      <option name="closed" value="true" />
+      <created>1766139748778</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1766139748778</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

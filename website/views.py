@@ -34,6 +34,8 @@ def contact(request):
 
         if not name:
             messages.error(request, "Proszę podać imię i nazwisko.")
+        elif not phone and not email:
+            messages.error(request, "Proszę podać przynajmniej jeden z kontaktów: telefon lub e-mail.")
         else:
             QuoteRequest.objects.create(name=name, phone=phone, email=email, message=message)
             messages.success(request, "Dziękujemy! Twoje zapytanie o wycenę zostało zapisane. Skontaktujemy się wkrótce.")

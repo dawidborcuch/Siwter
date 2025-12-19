@@ -32,11 +32,11 @@
                 </label>
                 <label>
                     <span>Telefon</span>
-                    <input type="text" name="phone">
+                    <input type="text" name="phone" id="phone-input">
                 </label>
                 <label>
                     <span>E-mail</span>
-                    <input type="email" name="email">
+                    <input type="email" name="email" id="email-input">
                 </label>
                 <label class="form-grid__full">
                     <span>Opis prac / zakres</span>
@@ -45,6 +45,25 @@
             </div>
             <button type="submit" class="btn btn-primary btn-primary--yellow">Wyślij zapytanie</button>
         </form>
+    </div>
+</section>
+
+<section class="contact-map" data-reveal>
+    <div class="container">
+        <h2>Lokalizacja</h2>
+        <div class="map-wrapper">
+            <iframe 
+                src="https://maps.google.com/maps?q=Folwarczna+23A,+07-130+Łochów,Poland&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Lokalizacja firmy Siwter - ul. Folwarczna 23A, 07-130 Łochów"
+                aria-label="Mapa Google z lokalizacją firmy Siwter">
+            </iframe>
+        </div>
     </div>
 </section>
 {% endblock %}

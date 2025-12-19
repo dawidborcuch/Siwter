@@ -478,12 +478,31 @@ img {
 }
 
 /* Slider ma być nad header-top/header-bottom, ale POD menu z kafelkami */
-.hero-carousel {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: var(--hero-carousel-top, 0px);
-    z-index: 5;
+/* Na desktop: absolute position względem header, aby był zawsze w tym samym miejscu pod menu */
+@media (min-width: 769px) {
+    .header {
+        position: relative;
+    }
+    
+    .hero-carousel {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: var(--hero-carousel-top, 0px);
+        z-index: 5;
+        /* Slider jest absolute względem header, więc nie porusza się podczas scrollowania */
+    }
+}
+
+/* Na mobile: relative position (normalne zachowanie) */
+@media (max-width: 768px) {
+    .hero-carousel {
+        position: relative;
+        left: 0;
+        right: 0;
+        top: auto;
+        z-index: 1;
+    }
 }
 
 .header-top,
@@ -812,6 +831,33 @@ img {
     font-size: 28px;
     font-weight: 900;
     color: #222;
+}
+
+.contact-map {
+    padding: 54px 0 70px;
+    background: #f8f9fa;
+}
+
+.contact-map h2 {
+    margin: 0 0 30px 0;
+    font-size: 28px;
+    font-weight: 900;
+    color: #222;
+    text-align: center;
+}
+
+.map-wrapper {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.map-wrapper iframe {
+    display: block;
+    width: 100%;
+    height: 450px;
+    border: 0;
 }
 
 .form-grid {
@@ -1889,11 +1935,11 @@ img {
 @media (max-width: 768px) {
     .navigation {
         display: none;
-        position: fixed;
-        top: 0;
+        position: absolute;
+        top: 100%;
         left: 0;
         right: 0;
-        width: 100vw;
+        width: 100%;
         max-width: 100%;
         max-height: 70vh;
         background-color: rgba(0, 0, 0, 0.95);
@@ -1910,12 +1956,26 @@ img {
         display: block;
     }
     
-    /* Container dla navigation - usuń ograniczenia */
+    /* Header musi być relative, aby navigation było pozycjonowane względem niego */
+    .header {
+        position: relative;
+    }
+    
+    /* Container z navigation - usuń ograniczenia */
     .header > .container:last-of-type {
         position: static;
         padding: 0;
         max-width: 100%;
         width: 100%;
+    }
+    
+    /* Navigation pozycjonowane jako absolute względem header */
+    .header > .container:last-of-type > .navigation {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        max-width: 100%;
     }
     
     /* Upewnij się, że navigation--main ma pełną szerokość */
@@ -1980,18 +2040,32 @@ img {
         display: none;
     }
     
+    /* Usuń strzałkę ::before z mobile */
+    .navigation--main li.menu-item-has-children > a::before {
+        display: none;
+    }
+    
+    /* Usuń dodatkowy padding, który był dla strzałki */
+    .navigation--main li.menu-item-has-children > a {
+        padding-right: 20px; /* Standard padding */
+    }
+    
     .navigation--main li.menu-item-has-children .sub-menu {
         position: static;
-        display: none;
+        display: none !important;
         box-shadow: none;
         background: rgba(0, 0, 0, 0.3);
         padding: 0;
         margin: 0;
         list-style: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
     }
     
     .navigation--main li.menu-item-has-children.mobile-submenu-open .sub-menu {
-        display: block;
+        display: block !important;
+        max-height: 500px; /* Arbitrary large value for smooth transition */
     }
     
     .navigation--main li.menu-item-has-children .sub-menu li {
@@ -2017,6 +2091,24 @@ img {
         display: flex;
     }
 
+    .contact-map {
+        padding: 40px 0 50px;
+    }
+    
+    .contact-map h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .map-wrapper iframe {
+        height: 350px;
+    }
+    
+    /* Ukryj breadcrumb na mobile */
+    .page-header.page-header--breadcrumb-only {
+        display: none;
+    }
+    
     .header-widgets-desktop {
         display: flex;
         width: 100%;
@@ -2469,12 +2561,27 @@ img {
         order: 3;
     }
     
+    /* Container z header-bottom - musi być relative dla pozycjonowania navigation */
+    .header > .container:first-of-type {
+        position: relative;
+    }
+    
     /* Container z navigation - usuń ograniczenia szerokości */
     .header > .container:last-of-type {
         position: static !important;
         padding: 0 !important;
         max-width: 100% !important;
         width: 100% !important;
+        order: 2;
+    }
+    
+    /* Navigation pozycjonowane względem pierwszego kontenera (z header-bottom) */
+    .header > .container:last-of-type > .navigation {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100vw;
     }
     
     /* Hamburger button should be visible on top */
