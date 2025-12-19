@@ -1589,8 +1589,83 @@ img {
 
 /* Gallery: tylko pasek breadcrumb na tle jak stopka */
 .page-header.page-header--breadcrumb-only {
-    background: #e6e6e6; /* jak stopka */
+    background: linear-gradient(135deg, #e6e6e6 0%, #d4d4d4 50%, #e6e6e6 100%);
     padding: 18px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Wave Pattern */
+.page-header.page-header--breadcrumb-only::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(252, 199, 31, 0.03) 10px,
+            rgba(252, 199, 31, 0.03) 20px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 10px,
+            rgba(252, 199, 31, 0.02) 10px,
+            rgba(252, 199, 31, 0.02) 20px
+        );
+    animation: waveMove 20s linear infinite;
+    pointer-events: none;
+}
+
+/* SVG Wave at bottom */
+.page-header.page-header--breadcrumb-only::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C300,100 600,20 900,60 C1050,80 1150,40 1200,60 L1200,120 L0,120 Z' fill='%23ffffff' opacity='0.8'%3E%3C/path%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    pointer-events: none;
+}
+
+@keyframes waveMove {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+    100% {
+        background-position: 100px 100px, -100px -100px;
+    }
+}
+
+/* Subtle shine effect */
+.page-header.page-header--breadcrumb-only {
+    background: 
+        linear-gradient(135deg, rgba(252, 199, 31, 0.05) 0%, transparent 50%),
+        linear-gradient(135deg, #e6e6e6 0%, #d4d4d4 50%, #e6e6e6 100%);
+}
+
+/* Enhanced breadcrumb styling */
+.page-header.page-header--breadcrumb-only .breadcrumb {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08), 0 0 0 1px rgba(252, 199, 31, 0.2);
+    transition: all 0.3s ease;
+}
+
+.page-header.page-header--breadcrumb-only .breadcrumb:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12), 0 0 0 1px rgba(252, 199, 31, 0.4);
+    transform: translateY(-1px);
 }
 
 /* Page Content */
@@ -2456,6 +2531,44 @@ body.dark-mode .breadcrumb a:hover {
 
 body.dark-mode .breadcrumb__sep {
     color: #666;
+}
+
+/* Dark mode for breadcrumb header */
+body.dark-mode .page-header.page-header--breadcrumb-only {
+    background: 
+        linear-gradient(135deg, rgba(252, 199, 31, 0.08) 0%, transparent 50%),
+        linear-gradient(135deg, #2d2d2d 0%, #1f1f1f 50%, #2d2d2d 100%);
+}
+
+body.dark-mode .page-header.page-header--breadcrumb-only::before {
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(252, 199, 31, 0.05) 10px,
+            rgba(252, 199, 31, 0.05) 20px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 10px,
+            rgba(252, 199, 31, 0.03) 10px,
+            rgba(252, 199, 31, 0.03) 20px
+        );
+}
+
+body.dark-mode .page-header.page-header--breadcrumb-only::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C300,100 600,20 900,60 C1050,80 1150,40 1200,60 L1200,120 L0,120 Z' fill='%231a1a1a' opacity='0.8'%3E%3C/path%3E%3C/svg%3E");
+}
+
+body.dark-mode .page-header.page-header--breadcrumb-only .breadcrumb {
+    background: rgba(45, 45, 45, 0.9);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3), 0 0 0 1px rgba(252, 199, 31, 0.3);
+}
+
+body.dark-mode .page-header.page-header--breadcrumb-only .breadcrumb:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 0 1px rgba(252, 199, 31, 0.5);
 }
 
 body.dark-mode .scroll-progress {
