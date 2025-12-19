@@ -429,23 +429,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Lazy Loading (bez blur - obrazy są już załadowane przez Django)
 
     // Parallax Effect for Hero (subtle)
-    // Parallax effect only on mobile (desktop slider is fixed)
-    const heroSlides = document.querySelectorAll('.hero-carousel__slide img');
-    if (heroSlides.length > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        window.addEventListener('scroll', () => {
-            // Only apply parallax on mobile
-            if (window.innerWidth > 768) return;
-            
-            const scrolled = window.pageYOffset;
-            heroSlides.forEach((img) => {
-                const slide = img.closest('.hero-carousel__slide');
-                if (slide && slide.classList.contains('is-active')) {
-                    const rate = scrolled * 0.3;
-                    img.style.transform = `translateY(${rate}px)`;
-                }
-            });
-        });
-    }
+    // Parallax effect disabled - slider should stay in place on both mobile and desktop
+    // Removed parallax effect to prevent slider from moving during scroll
     
     // Contact form validation: at least one of email or phone must be filled
     const contactForm = document.querySelector('.contact-form');
