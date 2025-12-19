@@ -2,6 +2,7 @@
 {% block title %}Cennik - Siwter{% endblock %}
 {% block meta_description %}Cennik usług remontowo-budowlanych Siwter. Sprawdź orientacyjne ceny i skontaktuj się po wycenę.{% endblock %}
 {% block content %}
+{% load static %}
 <section class="page-header page-header--breadcrumb-only">
     <div class="container">
         <nav class="breadcrumb" aria-label="Aktualne miejsce">
@@ -9,6 +10,186 @@
             <span class="breadcrumb__sep">→</span>
             <span aria-current="page">Cennik</span>
         </nav>
+    </div>
+</section>
+
+<section class="about-section pricing-section" data-reveal>
+    <div class="container">
+        <div class="pricing-info">
+            <h1>REMONTY ŁOCHÓW I OKOLICE, PROFESJONALNIE, TANIO, USŁUGI BUDOWALNE</h1>
+            <p>Przy większych kompleksowych remontach lub dużych powierzchniach ceny do uzgodnienia, natomiast przy pracach na trudno dostępnych, małych powierzchniach podany cennik wzrasta.</p>
+            <p><strong>Cennik przeprowadzenia przykładowych prac remontowych netto.</strong></p>
+            <p>Cennik nie obejmuje pełnego zakresu prac. Dokładny kosztorys przedstawiamy po zapoznaniu się z zakresem remontu najlepiej po wizji lokalnej.</p>
+        </div>
+
+        <div class="pricing-categories">
+            <div class="pricing-category" id="murarskie">
+                <h3>Prace murarsko – wyburzeniowe</h3>
+                <ul class="offer-detail__list">
+                    <li>wyburzenie ścian z cegły i betonu komórkowego – 50 zł/m² (do 16cm grubości),</li>
+                    <li>wyburzenie ścian żelbetowych – 100-200 zł/m² (do 12cm grubości),</li>
+                    <li>skuwanie tynków – od 25 zł/m²,</li>
+                    <li>wycinanie otworów pod drzwi – 200-500 zł.,</li>
+                    <li>demontaże sufitów podwieszanych – 30 zł/m²,</li>
+                    <li>demontaże ościeżnic z drzwi – 50/100 zł. sztuka,</li>
+                    <li>skuwanie glazury i terakoty – 30 zł/m²,</li>
+                    <li>wyrównanie ścian po skuwaniu – 20 zł/m²,</li>
+                    <li>wylewka samopoziomująca – 30 zł/m²,</li>
+                    <li>wylewka tradycyjna cementowa – 50 zł/m²,</li>
+                    <li>tynk tradycyjny cem.wapienny – od 40 zł/m²,</li>
+                    <li>obsadzenie kątowników tynkarskich – 10 zł/mb,</li>
+                    <li>miejscowe naprawy ubytków w tynkach, bruzd po wyburzeniach, itp. – 30 zł/mb,</li>
+                    <li>tynk typu baranek na ściany i sufity – 30 zł/m²,</li>
+                    <li>tynki dekoracyjne (stiuk, beton architektoniczny) – 100 zł/m²,</li>
+                    <li>wywóz gruzu z wyniesieniem – do uzgodnienia,</li>
+                    <li>murowanie ścian wewnętrznych działowych do 15cm grubości – 50 zł/m²,</li>
+                    <li>wykop ziemny pod fundamenty – od 100 zł/mb,</li>
+                    <li>wykonanie fundamentu betonowego wraz z szalowaniem – od 300 zł/m²,</li>
+                    <li>wykonanie zbrojenia do fundamentów – od 60 zł/mb.</li>
+                </ul>
+            </div>
+
+            <div class="pricing-category" id="gipsy">
+                <h3>Gipsy, malowanie</h3>
+                <ul class="offer-detail__list">
+                    <li>sufit podwieszany prosty – 90 zł/m²,</li>
+                    <li>sufit podwieszany wielopoziomowy – 120-150 zł/m²,</li>
+                    <li>sufit w różnych kształtach – od 150 zł/m²,</li>
+                    <li>płyty g/k klejone na ścianach – 50 zł/m²,</li>
+                    <li>płyta gk montowana na stelażu – 80 zł/m²,</li>
+                    <li>ścianka działowa gk z wypełnieniem wełną mineralną – 80 zł/m²,</li>
+                    <li>ścianka działowa z podwójną płytą gk – 100 zł/m²,</li>
+                    <li>zabudowy gk – 100 zł/mb,</li>
+                    <li>wykonanie zabudowy karnisza z płyt g/k, obróbka – od 100 zł/mb.,</li>
+                    <li>ocieplenie poddasza (wełna, folia, płyta gk na stelażu) – od 100 zł/m²,</li>
+                    <li>drobne szpachlowanie ścian i sufitów – 10 zł/m²,</li>
+                    <li>gruntowanie ścian i sufitów – 2 zł/m²,</li>
+                    <li>równanie ścian (pod gładź) do 1 cm – 25 zł/m²,</li>
+                    <li>równanie ścian (pod gładź) do 3 cm – 40 zł/m²,</li>
+                    <li>równanie ścian (pod gładź) od 3 – 5 cm – 50 zł/m²,</li>
+                    <li>wykonanie gładzi gipsowej – od 30 zł/m²,</li>
+                    <li>usunięcie starych tapet – od 10 zł/m²,</li>
+                    <li>skrobanie starych powłok malarskich – 10-15 zł/m²,</li>
+                    <li>tapetowanie ścian – od 30 zł/m²,</li>
+                    <li>malowanie na biało ścian i sufitów do pełnego pokrycia – 12-15 zł/m²,</li>
+                    <li>malowanie na kolor do pełnego pokrycia – 15-20 zł/m²,</li>
+                    <li>malowanie grzejników – 10 zł/żeberko,</li>
+                    <li>malowanie rur – 5 zł/mb,</li>
+                    <li>malowanie na olejno lamperii, podłóg – 30 zł/m²,</li>
+                    <li>malowanie elewacji – 25 zł/m² (plus koszt rusztowań powyżej 1 piętra).</li>
+                </ul>
+            </div>
+
+            <div class="pricing-category" id="montaz">
+                <h3>Prace montażowe</h3>
+                <ul class="offer-detail__list">
+                    <li>montaż drzwi wewnętrznych z ościeżnicą regulowaną – 200-250 zł/szt,</li>
+                    <li>montaż drzwi z ościeżnicą tradycyjną – 150 zł.,</li>
+                    <li>obustronna obróbka glifów drzwi jednoskrzydłowych – 300 zł.,</li>
+                    <li>montaż opasek drzwi wewnętrznych – 200 zł/kpl.,</li>
+                    <li>podcinanie drzwi wewnętrznych – 40 zł/szt.,</li>
+                    <li>montaż drzwi zewnętrznych jednoskrzydłowych z usunięciem starej ościeżnicy – 500 zł.,</li>
+                    <li>montaż parapetów wewnętrznych z obróbką – 60 zł/mb,</li>
+                    <li>montaż okien – 100 zł/mb obwodu,</li>
+                    <li>obróbka glifów – od 30 zł/mb,</li>
+                    <li>montaż sufitów typu Armstrong – 80 zł/m²,</li>
+                    <li>montaż listew ozdobnych przysufitowych – od 40 zł/mb.,</li>
+                    <li>montaż gotowej zabudowy karnisza, obróbka – 50 zł/mb..</li>
+                </ul>
+            </div>
+
+            <div class="pricing-category" id="podlogi">
+                <h3>Podłogi</h3>
+                <ul class="offer-detail__list">
+                    <li>demontaż starych parkietów, wykładzin – 10 zł/m²,</li>
+                    <li>wylewka tradycyjna z izolacją i styropianem – 80 zł/m²,</li>
+                    <li>szlifowanie posadzki betonowej – 15 zł/mb,</li>
+                    <li>gruntowanie podłoża – 5 zł/m²,</li>
+                    <li>ułożenie paneli – 30 zł/m²,</li>
+                    <li>ułożenie gotowej deski podłogowej na klej – 50 zł/m²,</li>
+                    <li>usługa kompleksowa (układanie, cyklinowanie, 3 krotne lakierowanie parkietu) – 120 zł/m²,</li>
+                    <li>ułożenie listwy przypodłogowej mdf klejonej – 20 zł/mb,</li>
+                    <li>ułożenie listew przypodłogowych z tworzywa sztucznego – 10 zł/mb,</li>
+                    <li>ułożenie parkietu klejonego – 40-60 zł/m²,</li>
+                    <li>cyklinowanie parkietów wraz z lakierowaniem – 50 zł/m²,</li>
+                    <li>dodatkowe lakierowanie – 5 zł/m²,</li>
+                    <li>polerowanie parkietu – 5 zł/m²,</li>
+                    <li>ułożenie wykładziny dywanowej – 20 zł/m²,</li>
+                    <li>ułożenie wykładziny dywanowej klejonej – 25 zł/m²,</li>
+                    <li>wykonanie posadzki z żywicy epoksydowej – 40 zł/m².</li>
+                </ul>
+            </div>
+
+            <div class="pricing-category" id="glazura">
+                <h3>Glazura, terakota</h3>
+                <ul class="offer-detail__list">
+                    <li>skuwanie glazury, terakoty – 40 zł/m²,</li>
+                    <li>wyrównanie ścian przed położeniem glazury – 20 zł/m²,</li>
+                    <li>wykonanie izolacji wilgociowej przy kabinach, brodzikach – 20 zł/m²,</li>
+                    <li>układanie glazury (od 20×20) – od 100 zł/m²,</li>
+                    <li>układanie płytek wielkoformatowych – do uzgodnienia,</li>
+                    <li>układanie glazury z małych płytek (poniżej 20x20) – 120 zł/m²,</li>
+                    <li>układanie mozaiki na siatce – od 150 zł/m²,</li>
+                    <li>układanie listew ozdobnych metalowych narożnych lub między płytki – 20 zł/mb,</li>
+                    <li>układanie terakoty, gresu – od 100 zł/m²,</li>
+                    <li>gres, terakota w karo – 140 zł/m²,</li>
+                    <li>fugowanie fugą epoksydową – 30 zł/m²,</li>
+                    <li>wykonanie półki z glazury – od 150 zł/mb,</li>
+                    <li>wykonanie wnęki wykuwanej w ścianie – 150 zł/m²,</li>
+                    <li>wykonanie rewizji na magnesach – 100 zł.,</li>
+                    <li>wykonanie otworu w glazurze, terakocie – 20 zł/szt.,</li>
+                    <li>szlifowanie narożników na 90 stopni – 80 zł/mb.,</li>
+                    <li>obłożenie schodów płytkami – od 120 zł/mb,</li>
+                    <li>montaż cokołów gotowych – 20 zł/mb,</li>
+                    <li>montaż cokołów ciętych samodzielnie – 40 zł/mb.,</li>
+                    <li>wklejenie lustra – 80 zł/m²,</li>
+                    <li>montaż dodatków łazienkowych – 15 zł/szt,</li>
+                    <li>hydroizolacja pod wanny, brodziki – 15 zł/m²,</li>
+                    <li>wiercenie otworów w glazurze, terakocie – 15 zł/szt,</li>
+                </ul>
+            </div>
+
+            <div class="pricing-category" id="instalacje">
+                <h3>Instalacje wod.-kan., biały montaż, obudowy</h3>
+                <ul class="offer-detail__list">
+                    <li>demontaże armatury, starych punktów hydraulicznych, itp. – od 30 zł/szt,</li>
+                    <li>bruzdowanie pod rury w cegle – 50 zł/mb,</li>
+                    <li>bruzdowanie pod rury w żelbecie – 100 zł/mb,</li>
+                    <li>rozprowadzenie instalacji – 20 zł/mb,</li>
+                    <li>wykonanie nowego punktu wod.-kan. PP, pex – 200 zł/szt,</li>
+                    <li>rozłożenie instalacji ogrzewania podłogowego (styropian, folia, rura) – 80 zł/m²,</li>
+                    <li>montaż szafki CO wkuwanej w ścianę – od 200 zł.,</li>
+                    <li>montaż rozdzielacza ogrzewania – 300-600 zł/szt.,</li>
+                    <li>montaż odpływu liniowego wraz z wykonaniem spadków – 400-500 zł/szt,</li>
+                    <li>montaż wanny prostej, brodzika (standard) – 200 zł.,</li>
+                    <li>montaż brodzika – 150 zł.,</li>
+                    <li>montaż kabiny prysznicowej – 300-400 zł.,</li>
+                    <li>montaż kabiny prysznicowej wolnostojącej – 500-600 zł.,</li>
+                    <li>montaż i zabudowa spłuczki podtynkowej – 250 zł.,</li>
+                    <li>montaż baterii podtynkowej – 300 zł.,</li>
+                    <li>montaż mieszalnika podtynkowego – 500 zł.,</li>
+                    <li>obmurowanie wanny, brodzika – 300-500 zł/szt,</li>
+                    <li>obmurowanie wanny narożnej – 400-600 zł/szt,</li>
+                    <li>montaż armatury (umywalka, kompakt, bidet, baterie, deszczownice, itp.) – od 150 zł/szt.,</li>
+                    <li>montaż standardowego grzejnika z zaworami – 150 zł/szt,</li>
+                </ul>
+            </div>
+
+            <div class="pricing-category" id="elektryczne">
+                <h3>Instalacje elektryczne</h3>
+                <ul class="offer-detail__list">
+                    <li>bruzdowanie pod przewody – 20-40 zł/mb., w zależności od rodzaju ścian,</li>
+                    <li>demontaże starego osprzętu – 10 zł/szt,</li>
+                    <li>wykucie otworu pod puszkę w ścianie – 10-30 zł/szt.,</li>
+                    <li>rozprowadzenie nowej instalacji bez kucia – 10 zł/mb,</li>
+                    <li>montaż mat grzewczych podpłytkowych z podłączeniem i warstwą kleju – od 200 zł/szt.,</li>
+                    <li>wykonanie punktu elektrycznego, antenowego, itp. – 50 zł/szt,</li>
+                    <li>montaż osprzętu (gniazda, włączniki) – 15 zł/szt,</li>
+                    <li>montaż standardowego oświetlenia, wentylatorów, itp. – od 50 zł/szt.,</li>
+                    <li>montaż rozdzielni z podłączeniem – 300-800 zł/szt.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
