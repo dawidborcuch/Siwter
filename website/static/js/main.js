@@ -16,14 +16,64 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     if (mobileMenuToggle && mainNav) {
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isActive = mainNav.classList.contains('mobile-active');
+            
+            if (!isActive) {
+                // Calculate position below header-bottom
+                const headerBottom = document.querySelector('.header-bottom');
+                if (headerBottom) {
+                    const rect = headerBottom.getBoundingClientRect();
+                    mainNav.style.top = rect.bottom + 'px';
+                }
+            }
+            
             mainNav.classList.toggle('mobile-active');
             this.classList.toggle('active');
+            document.body.style.overflow = mainNav.classList.contains('mobile-active') ? 'hidden' : '';
+        });
+        
+        // Close menu when clicking outside or on menu item
+        document.addEventListener('click', function(e) {
+            if (mainNav.classList.contains('mobile-active')) {
+                // Close if clicking outside menu
+                if (!mainNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    mainNav.classList.remove('mobile-active');
+                    mobileMenuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                // Close if clicking on a menu link (not submenu parent)
+                if (mainNav.contains(e.target) && e.target.tagName === 'A' && !e.target.parentElement.classList.contains('menu-item-has-children')) {
+                    mainNav.classList.remove('mobile-active');
+                    mobileMenuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+        
+        // Handle submenu toggle on mobile
+        const submenuParents = mainNav.querySelectorAll('.menu-item-has-children > a');
+        submenuParents.forEach(function(parentLink) {
+            parentLink.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const parentLi = this.parentElement;
+                    parentLi.classList.toggle('mobile-submenu-open');
+                }
+            });
         });
     }
 
     // Place hero slider so its TOP starts at half the height of the menu tiles
+    // Only on desktop - on mobile slider is in normal flow below header
     const updateHeroCarouselTop = () => {
+        // Skip on mobile
+        if (window.innerWidth <= 768) {
+            document.documentElement.style.setProperty('--hero-carousel-push', '0px');
+            return;
+        }
+
         const header = document.querySelector('header.header');
         const slider = document.querySelector('.hero-carousel');
         const sliderViewport = document.querySelector('.hero-carousel__viewport');
@@ -284,37 +334,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Lazy Loading (bez blur - obrazy są już załadowane przez Django)
-
-    // Dark Mode Toggle
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Sprawdź zapisane preferencje lub użyj systemowych
-    const savedTheme = localStorage.getItem('theme');
-    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-    
-    if (isDark) {
-        document.body.classList.add('dark-mode');
-    }
-    
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const isDarkMode = document.body.classList.contains('dark-mode');
-            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-        });
-    }
-    
-    // Obserwuj zmiany preferencji systemowych (tylko jeśli użytkownik nie wybrał ręcznie)
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) {
-            if (e.matches) {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
-            }
-        }
-    });
 
     // Parallax Effect for Hero (subtle)
     const heroSlides = document.querySelectorAll('.hero-carousel__slide img');
