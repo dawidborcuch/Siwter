@@ -1714,6 +1714,23 @@ img {
     transform: translateY(-1px);
 }
 
+/* Page Title - główny nagłówek strony - tylko na mobile */
+.page-title {
+    display: none; /* Ukryj na desktop */
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        display: block; /* Pokaż na mobile */
+        font-size: 28px;
+        font-weight: 900;
+        color: #222;
+        margin: 0 0 20px 0;
+        padding-top: 15px;
+        text-align: center;
+    }
+}
+
 /* Page Content */
 .page-content {
     padding: 60px 0;
