@@ -219,6 +219,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const slides = track ? Array.from(track.querySelectorAll('[data-carousel-slide]')) : [];
     const btnPrev = document.querySelector('[data-carousel-prev]');
     const btnNext = document.querySelector('[data-carousel-next]');
+    const pagination = document.querySelector('[data-carousel-pagination]');
+
+    // Create pagination dots
+    if (pagination && slides.length > 0) {
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'hero-carousel__pagination-dot';
+            dot.setAttribute('aria-label', `Przejdź do slajdu ${i + 1}`);
+            dot.setAttribute('data-slide-index', i);
+            pagination.appendChild(dot);
+        });
+    }
 
     if (track && slides.length > 0 && btnPrev && btnNext) {
         let idx = 0;
@@ -228,6 +240,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const render = () => {
             track.style.transform = `translateX(-${idx * 100}%)`;
             slides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
+            
+            // Update pagination dots
+            if (pagination) {
+                const dots = pagination.querySelectorAll('.hero-carousel__pagination-dot');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === idx);
+                });
+            }
         };
 
         const next = () => {
@@ -260,6 +280,18 @@ document.addEventListener('DOMContentLoaded', function() {
             start();
         });
 
+        // Pagination dots click handlers
+        if (pagination) {
+            const dots = pagination.querySelectorAll('.hero-carousel__pagination-dot');
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => {
+                    idx = i;
+                    render();
+                    start();
+                });
+            });
+        }
+
         // Pause on hover (desktop)
         track.addEventListener('mouseenter', stop);
         track.addEventListener('mouseleave', start);
@@ -273,6 +305,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
 
+    // Helper function to check if element is in viewport
+    const isInViewport = (el) => {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    };
+
+    // Check if element is already visible (e.g., after hash navigation)
+    const checkInitialVisibility = () => {
+        revealEls.forEach((el) => {
+            // If element is already in viewport or above viewport, show it immediately
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                el.classList.add('is-visible');
+            }
+        });
+    };
+
+    // Check immediately on load
+    checkInitialVisibility();
+
+    // Also check after a short delay to catch hash navigation
+    setTimeout(checkInitialVisibility, 100);
+    setTimeout(checkInitialVisibility, 500);
+
     if (!prefersReduced && revealEls.length > 0 && 'IntersectionObserver' in window) {
         const io = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -283,7 +344,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
 
-        revealEls.forEach((el) => io.observe(el));
+        revealEls.forEach((el) => {
+            // Only observe if not already visible
+            if (!el.classList.contains('is-visible')) {
+                io.observe(el);
+            }
+        });
     } else {
         // fallback: show immediately
         revealEls.forEach((el) => el.classList.add('is-visible'));
