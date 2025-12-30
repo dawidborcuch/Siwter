@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.clearTimeout(window.__siwterHeroTopT);
         window.__siwterHeroTopT = window.setTimeout(updateHeroCarouselTop, 100);
     });
-
+    
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -595,12 +595,12 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             // Validate on form submit
-            contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function(e) {
                 const phoneValue = phoneInput.value.trim();
                 const emailValue = emailInput.value.trim();
                 
                 if (!phoneValue && !emailValue) {
-                    e.preventDefault();
+            e.preventDefault();
                     e.stopPropagation();
                     createModal('Proszę podać przynajmniej jeden z kontaktów: telefon lub e-mail.');
                     return false;

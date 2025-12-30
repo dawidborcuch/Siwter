@@ -1,11 +1,17 @@
+"""
+Base settings for Siwter project.
+"""
 from pathlib import Path
+from decouple import config, Csv
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = "django-insecure-change-this-in-production"
-DEBUG = True
-ALLOWED_HOSTS = ["*"]
+# Security
+SECRET_KEY = config('SECRET_KEY', default='django-insecure-change-this-in-production')
+DEBUG = config('DEBUG', default=False, cast=bool)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
 
+# Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -47,13 +53,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "siwter.wsgi.application"
 
+# Database
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": config('DB_ENGINE', default='django.db.backends.sqlite3'),
+        "NAME": config('DB_NAME', default=BASE_DIR / "db.sqlite3"),
+        "USER": config('DB_USER', default=''),
+        "PASSWORD": config('DB_PASSWORD', default=''),
+        "HOST": config('DB_HOST', default=''),
+        "PORT": config('DB_PORT', default=''),
     }
 }
 
+# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
@@ -61,20 +73,32 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
+# Internationalization
 LANGUAGE_CODE = "pl-pl"
 TIME_ZONE = "Europe/Warsaw"
 USE_I18N = True
 USE_TZ = True
 
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+# Media files (user uploads)
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
+# Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Allow iframes from Google Maps
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+# Security settings for production
+if not DEBUG:
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    X_FRAME_OPTIONS = 'DENY'
+    # SECURE_SSL_REDIRECT = True  # Włącz po skonfigurowaniu SSL
+    # SESSION_COOKIE_SECURE = True  # Włącz po skonfigurowaniu SSL
+    # CSRF_COOKIE_SECURE = True  # Włącz po skonfigurowaniu SSL
 

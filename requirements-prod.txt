@@ -1,0 +1,11 @@
+# Zależności dla produkcji (VPS Linux)
+# Zainstaluj używając: pip install -r requirements-prod.txt
+
+# Podstawowe zależności
+Django==4.2.7
+Pillow==11.0.0
+python-decouple==3.8
+
+# Produkcja - serwer (SQLite jest wbudowane w Python, nie wymaga dodatkowych pakietów)
+gunicorn==21.2.0
+

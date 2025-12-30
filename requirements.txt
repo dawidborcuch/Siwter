@@ -1,4 +1,7 @@
+# Podstawowe zależności dla developmentu
+# Na produkcji użyj: pip install -r requirements-prod.txt
 Django==4.2.7
 Pillow==11.0.0
+python-decouple==3.8
 
 
