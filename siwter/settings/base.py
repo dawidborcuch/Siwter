@@ -102,3 +102,4 @@ if not DEBUG:
     # SESSION_COOKIE_SECURE = True  # Włącz po skonfigurowaniu SSL
     # CSRF_COOKIE_SECURE = True  # Włącz po skonfigurowaniu SSL
 
+
