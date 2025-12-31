@@ -640,56 +640,75 @@ img {
     top: 50%;
     transform: translateY(-50%);
     width: min(520px, 34vw);
-    background: rgba(34, 34, 34, 0.88); /* ciemny grafit, półprzezroczysty */
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(34, 34, 34, 0.92) 100%); /* gradient tła */
+    backdrop-filter: blur(10px); /* efekt szkła */
+    -webkit-backdrop-filter: blur(10px);
     color: #fff;
-    padding: 28px 28px;
-    border-radius: 4px; /* delikatne zaokrąglenie */
+    padding: 32px 36px;
+    border-radius: 12px; /* większe zaokrąglenie */
+    border: 2px solid rgba(252, 199, 31, 0.3); /* żółte obramowanie */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset; /* głęboki cień i subtelne wewnętrzne obramowanie */
+    transition: all 0.3s ease;
 }
 
 .jumbotron__category h6 {
     color: #fcc71f;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
-    letter-spacing: 0.02em;
-    text-transform: none;
-    margin: 0 0 10px 0;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 12px 0;
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(252, 199, 31, 0.15); /* delikatne żółte tło */
+    border-radius: 20px;
+    border: 1px solid rgba(252, 199, 31, 0.3);
 }
 
-/* Żółta linia pod małym nagłówkiem */
+/* Usunięto żółtą linię - zastąpiona przez tło kategorii */
 .jumbotron__category h6::after {
-    content: "";
-    display: block;
-    width: 40px;
-    height: 2px;
-    background: #fcc71f;
-    margin-top: 10px;
+    display: none;
 }
 
 .jumbotron__title p {
     color: #fff;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: clamp(26px, 2.6vw, 30px);
-    line-height: 1.1;
-    margin: 14px 0 14px 0;
+    font-size: clamp(28px, 2.8vw, 34px);
+    line-height: 1.2;
+    margin: 16px 0 18px 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* cień tekstu dla lepszej czytelności */
+    letter-spacing: 0.02em;
 }
 
 .jumbotron__content p {
-    color: #d0d0d0;
-    font-size: 14px;
-    line-height: 1.65;
-    margin: 0 0 16px 0;
+    color: #e8e8e8;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 0 20px 0;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Przycisk "Więcej" w karcie */
 .carousel-content .btn.btn-primary {
-    background: #fcc71f;
+    background: linear-gradient(135deg, #fcc71f 0%, #ffd740 100%); /* gradient na przycisku */
     color: #111;
     border: 0;
+    padding: 12px 28px;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 25px; /* zaokrąglone rogi */
+    box-shadow: 0 4px 12px rgba(252, 199, 31, 0.4); /* żółty cień */
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .carousel-content .btn.btn-primary:hover {
-    background: #e2b11b;
+    background: linear-gradient(135deg, #ffd740 0%, #fcc71f 100%); /* odwrócony gradient */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(252, 199, 31, 0.6); /* większy cień przy hover */
 }
 
 /* Overlap realizujemy na .hero-carousel__viewport (transform),
