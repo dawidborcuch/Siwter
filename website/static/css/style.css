@@ -804,8 +804,66 @@ img {
 
 /* About Section */
 .about-section {
-    padding: 60px 0;
-    background-color: #fff;
+    padding: 64px 0 80px;
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 50%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dekoracyjne tło */
+.about-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(252, 199, 31, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(252, 199, 31, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.offer-page__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    justify-content: center;
+}
+
+.offer-page__icon {
+    color: #fcc71f;
+    font-size: 40px;
+    flex-shrink: 0;
+}
+
+.offer-page__header .page-title {
+    display: block !important; /* Pokaż na desktop, nadpisz ogólne ukrycie */
+    margin: 0;
+    font-size: 36px;
+    color: #222;
+    font-weight: 900;
+    position: relative;
+    padding-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.offer-page__header .page-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #fcc71f 0%, #ffd740 100%);
+    border-radius: 2px;
 }
 
 .about-section h2 {
@@ -1404,46 +1462,215 @@ img {
 
 /* About page */
 .about-page {
-    padding: 54px 0 70px;
-    background: #fff;
+    padding: 64px 0 80px;
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 50%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dekoracyjne tło */
+.about-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(252, 199, 31, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(252, 199, 31, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-page .container {
+    position: relative;
+    z-index: 1;
+}
+
+.about-page__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    justify-content: center;
+}
+
+.about-page__icon {
+    color: #fcc71f;
+    font-size: 40px;
+    flex-shrink: 0;
+}
+
+.about-page__header .page-title {
+    display: block !important; /* Pokaż na desktop, nadpisz ogólne ukrycie */
+    margin: 0;
+    font-size: 36px;
+    color: #222;
+    font-weight: 900;
+    position: relative;
+    padding-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.about-page__header .page-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #fcc71f 0%, #ffd740 100%);
+    border-radius: 2px;
 }
 
 .about-page__grid {
     display: grid;
     grid-template-columns: 1.05fr 1fr;
-    gap: 34px;
+    gap: 44px;
     align-items: start;
+}
+
+.about-page__image-wrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.about-page__image-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
 .about-page__media img {
     width: 100%;
     height: auto;
     display: block;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
 }
 
-.about-page__content p {
-    margin: 0 0 14px 0;
-    color: #555;
+.about-page__image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.about-page__features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-page__feature {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 4px solid #fcc71f;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.about-page__feature:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-left-color: #ffd740;
+}
+
+.about-page__feature p {
+    margin: 0;
+    color: #444;
     font-size: 15px;
-    line-height: 1.75;
+    line-height: 1.8;
+    flex: 1;
+}
+
+.about-page__feature p strong {
+    color: #222;
+    font-weight: 700;
+}
+
+.about-page__cta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 8px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(252, 199, 31, 0.1) 0%, rgba(255, 215, 64, 0.05) 100%);
+    border-radius: 12px;
+    border: 2px solid rgba(252, 199, 31, 0.2);
+}
+
+.about-page__cta-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.about-page__cta-item .cta-icon {
+    color: #fcc71f;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.about-page__cta-item p {
+    margin: 0;
+    color: #222;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.about-page__cta-item p strong {
+    color: #fcc71f;
+    font-weight: 700;
+    font-size: 18px;
 }
 
 @media (max-width: 992px) {
     .about-page__grid {
         grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .about-page__header {
+        margin-bottom: 32px;
+    }
+
+    .about-page__header .page-title {
+        font-size: 28px;
+    }
+
+    .about-page__icon {
+        font-size: 32px;
+    }
+
+    .about-page__cta {
+        padding: 20px;
+    }
+
+    .offer-page__header {
+        margin-bottom: 32px;
+    }
+
+    .offer-page__header .page-title {
+        font-size: 28px;
+    }
+
+    .offer-page__icon {
+        font-size: 32px;
     }
 }
 
 /* Oferta: detale usługi (np. murarskie) */
 .offer-detail .about-page__content h2 {
-    margin: 0 0 14px 0;
-    font-size: 28px;
+    margin: 0 0 20px 0;
+    font-size: 32px;
     font-weight: 900;
     color: #222;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+    letter-spacing: -0.02em;
 }
 
 .offer-detail .about-page__content h2::after {
@@ -1451,24 +1678,39 @@ img {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 64px;
-    height: 3px;
-    background: #fcc71f;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #fcc71f 0%, #ffd740 100%);
+    border-radius: 2px;
 }
 
 .offer-detail .about-page__content h3 {
-    margin: 18px 0 12px 0;
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: 0.04em;
+    margin: 28px 0 16px 0;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
     color: #222;
     text-transform: uppercase;
+    position: relative;
+    padding-left: 32px;
+}
+
+.offer-detail .about-page__content h3::before {
+    content: "💰";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 20px;
 }
 
 .offer-detail__pricebox {
-    background: #f7f7f7;
-    border: 1px solid rgba(0,0,0,0.08);
-    padding: 14px 16px;
+    background: linear-gradient(135deg, rgba(252, 199, 31, 0.08) 0%, rgba(255, 215, 64, 0.05) 100%);
+    border: 2px solid rgba(252, 199, 31, 0.2);
+    border-left: 4px solid #fcc71f;
+    padding: 24px 28px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin: 24px 0;
 }
 
 .offer-detail__list {
@@ -1495,6 +1737,40 @@ img {
     top: 0;
     color: #fcc71f;
     font-weight: 900;
+    font-size: 16px;
+    margin-right: 12px;
+}
+
+/* Ulepszenia dla obrazków w sekcjach oferty */
+.offer-detail .about-page__media {
+    position: relative;
+}
+
+.offer-detail .about-page__media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.offer-detail .about-page__media:hover img {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Ulepszenia dla tekstu w sekcjach oferty */
+.offer-detail .about-page__content p {
+    margin: 0 0 18px 0;
+    color: #444;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.offer-detail .about-page__content p strong {
+    color: #222;
+    font-weight: 700;
 }
 
 @media (min-width: 900px) {
