@@ -2431,8 +2431,30 @@ img {
 
 /* Sekcje na stronie głównej (pod sliderem) */
 .home-sections {
-    padding: 48px 0 60px;
-    background: #fff;
+    padding: 64px 0 80px;
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 50%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dekoracyjne tło */
+.home-sections::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(252, 199, 31, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(252, 199, 31, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.home-sections .container {
+    position: relative;
+    z-index: 1;
 }
 
 .home-columns {
@@ -2446,14 +2468,28 @@ img {
     min-width: 0;
 }
 
+.about-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.about-icon {
+    color: #fcc71f;
+    font-size: 36px;
+    flex-shrink: 0;
+}
+
 .home-col h2 {
-    font-size: 28px;
-    margin: 0 0 18px 0;
+    font-size: 32px;
+    margin: 0;
     color: #222;
-    font-weight: 800;
+    font-weight: 900;
     position: relative;
     display: inline-block;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+    letter-spacing: -0.02em;
 }
 
 .home-col h2::after {
@@ -2461,9 +2497,68 @@ img {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 64px;
-    height: 3px;
-    background: #fcc71f; /* żółty jak w menu */
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #fcc71f 0%, #ffd740 100%);
+    border-radius: 2px;
+}
+
+.about-content {
+    margin-bottom: 32px;
+}
+
+.about-feature {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 4px solid #fcc71f;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.about-feature:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-left-color: #ffd740;
+}
+
+.feature-icon {
+    color: #fcc71f;
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.about-feature p {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 0;
+    flex: 1;
+}
+
+.about-feature p strong {
+    color: #222;
+    font-weight: 700;
+}
+
+.about-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.about-btn i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.about-btn:hover i {
+    transform: translateX(4px);
 }
 
 .home-col p {
@@ -2473,27 +2568,71 @@ img {
     margin: 0 0 14px 0;
 }
 
-.topic-block + .topic-block {
-    margin-top: 22px;
+.topics-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.topics-icon {
+    color: #fcc71f;
+    font-size: 36px;
+    flex-shrink: 0;
+}
+
+.topics-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.topic-block {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 4px solid #fcc71f;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.topic-block:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-left-color: #ffd740;
+}
+
+.topic-icon {
+    color: #fcc71f;
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.topic-content {
+    flex: 1;
 }
 
 .topic-block h3 {
     margin: 0 0 10px 0;
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 0.04em;
     color: #222;
     font-weight: 900;
-    position: relative;
-    padding-left: 22px; /* miejsce na ptaszka */
+    text-transform: uppercase;
 }
 
 .topic-block h3::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #fcc71f;
-    font-weight: 900;
+    display: none; /* usunięto ptaszka, bo mamy ikonę */
+}
+
+.topic-block p {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 0;
 }
 
 @media (max-width: 992px) {

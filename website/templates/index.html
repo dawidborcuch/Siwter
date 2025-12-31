@@ -134,36 +134,74 @@
     <div class="container">
         <div class="home-columns">
             <article class="home-col home-col--about">
-                <h2>Firma budowlana</h2>
-                <p>Siwter to firma remontowo-budowlana. Zajmujemy się kompleksowymi wykończeniami mieszkań, domów, lokali biurowych oraz remontowaniem i adaptacją pomieszczeń takich jak poddasza, piwnice oraz sutereny.</p>
+                <div class="about-header">
+                    <i class="fa fa-building about-icon" aria-hidden="true"></i>
+                    <h2>Firma budowlana</h2>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-feature">
+                        <i class="fa fa-check-circle feature-icon" aria-hidden="true"></i>
+                        <p><strong>Siwter to firma remontowo-budowlana.</strong> Zajmujemy się kompleksowymi wykończeniami mieszkań, domów, lokali biurowych oraz remontowaniem i adaptacją pomieszczeń takich jak poddasza, piwnice oraz sutereny.</p>
+                    </div>
 
-                <p>Prace naszej firmy obejmują budynki mieszkalne - zarówno mieszkania, domy jednorodzinne, a także wnętrza użytkowe przeznaczone pod sklepy, biura, magazyny czy miejsca wypoczynku. Realizujemy zlecenia osób prywatnych, a także firm i innych instytucji.</p>
+                    <div class="about-feature">
+                        <i class="fa fa-home feature-icon" aria-hidden="true"></i>
+                        <p>Prace naszej firmy obejmują budynki mieszkalne - zarówno mieszkania, domy jednorodzinne, a także wnętrza użytkowe przeznaczone pod sklepy, biura, magazyny czy miejsca wypoczynku. Realizujemy zlecenia osób prywatnych, a także firm i innych instytucji.</p>
+                    </div>
 
-                <p>Dbamy o dobry kontakt z klientem i staramy się każdemu dać pewność fachowo wykonanych usług.</p>
+                    <div class="about-feature">
+                        <i class="fa fa-handshake-o feature-icon" aria-hidden="true"></i>
+                        <p>Dbamy o dobry kontakt z klientem i staramy się każdemu dać pewność fachowo wykonanych usług.</p>
+                    </div>
 
-                <p>Każde zlecenie traktujemy indywidualnie starając się dotrzymać terminów zawartych w umowie z klientem.</p>
+                    <div class="about-feature">
+                        <i class="fa fa-clock-o feature-icon" aria-hidden="true"></i>
+                        <p>Każde zlecenie traktujemy indywidualnie starając się dotrzymać terminów zawartych w umowie z klientem.</p>
+                    </div>
 
-                <p>Oprócz prac budowlano-wykończeniowych oferujemy państwu pomoc przy skręcaniu-montażu mebli, usługi transportowe oraz sprzątanie.</p>
+                    <div class="about-feature">
+                        <i class="fa fa-wrench feature-icon" aria-hidden="true"></i>
+                        <p>Oprócz prac budowlano-wykończeniowych oferujemy państwu pomoc przy skręcaniu-montażu mebli, usługi transportowe oraz sprzątanie.</p>
+                    </div>
+                </div>
 
-                <a class="btn btn-primary btn-primary--yellow" href="{% url 'about' %}">Więcej o nas</a>
+                <a class="btn btn-primary btn-primary--yellow about-btn" href="{% url 'about' %}">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    Więcej o nas
+                </a>
             </article>
 
             <article class="home-col home-col--topics">
-                <h2>Remonty Łochów</h2>
-
-                <div class="topic-block">
-                    <h3>ŁAZIENKA</h3>
-                    <p>Łazienka w każdym domu to miejsce szczególne - w niej bowiem rozpoczynamy i kończymy dzień. Chcemy więc, aby jej wnętrze miało klimat dodający nam rano energii na cały dzień, a wieczorem zapewniało relaks przed snem.</p>
+                <div class="topics-header">
+                    <i class="fa fa-home topics-icon" aria-hidden="true"></i>
+                    <h2>Remonty Łochów</h2>
                 </div>
 
-                <div class="topic-block">
-                    <h3>KUCHNIA</h3>
-                    <p>Wspaniała kuchnia to znacznie więcej niż kolejne pomieszczenie - może być sercem każdego domu. Kuchnia powinna być nie tylko piękna ale i funkcjonalna.</p>
-                </div>
+                <div class="topics-content">
+                    <div class="topic-block">
+                        <i class="fa fa-shower topic-icon" aria-hidden="true"></i>
+                        <div class="topic-content">
+                            <h3>ŁAZIENKA</h3>
+                            <p>Łazienka w każdym domu to miejsce szczególne - w niej bowiem rozpoczynamy i kończymy dzień. Chcemy więc, aby jej wnętrze miało klimat dodający nam rano energii na cały dzień, a wieczorem zapewniało relaks przed snem.</p>
+                        </div>
+                    </div>
 
-                <div class="topic-block">
-                    <h3>POKÓJ</h3>
-                    <p>Pomysłów na urządzanie pokoju jest bardzo wiele, jednak nie zawsze potrafimy przewidzieć, czy wybrane meble, podłogi czy dodatki będą nam się zawsze podobać.</p>
+                    <div class="topic-block">
+                        <i class="fa fa-cutlery topic-icon" aria-hidden="true"></i>
+                        <div class="topic-content">
+                            <h3>KUCHNIA</h3>
+                            <p>Wspaniała kuchnia to znacznie więcej niż kolejne pomieszczenie - może być sercem każdego domu. Kuchnia powinna być nie tylko piękna ale i funkcjonalna.</p>
+                        </div>
+                    </div>
+
+                    <div class="topic-block">
+                        <i class="fa fa-bed topic-icon" aria-hidden="true"></i>
+                        <div class="topic-content">
+                            <h3>POKÓJ</h3>
+                            <p>Pomysłów na urządzanie pokoju jest bardzo wiele, jednak nie zawsze potrafimy przewidzieć, czy wybrane meble, podłogi czy dodatki będą nam się zawsze podobać.</p>
+                        </div>
+                    </div>
                 </div>
             </article>
         </div>
