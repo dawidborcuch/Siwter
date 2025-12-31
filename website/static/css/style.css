@@ -5,12 +5,20 @@
     box-sizing: border-box;
 }
 
+html {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 50%, #ffffff 100%) !important;
+    background-attachment: fixed; /* gradient pozostaje stały podczas scrollowania */
+    min-height: 100%;
+}
+
 body {
     font-family: 'Roboto', 'Arial', 'Helvetica', sans-serif;
     line-height: 1.7;
     color: #333;
-    background-color: #fff;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 50%, #ffffff 100%) !important;
+    background-attachment: fixed; /* gradient pozostaje stały podczas scrollowania */
     font-weight: 400;
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -135,20 +143,39 @@ img {
 }
 
 .header-top {
-    background-color: #e6e6e6; /* wyszarzony pasek */
-    color: #bbbbbb;
-    padding: 6px 0; /* niższy pasek */
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%); /* ciemny gradient */
+    color: #fff;
+    padding: 10px 0; /* nieco wyższy pasek */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* subtelny cień */
+    border-bottom: 2px solid #fcc71f; /* żółty akcent na dole */
 }
 
 .header-top .header-info {
     flex-wrap: nowrap;
     gap: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-top .header-address {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+}
+
+.header-top .header-address i {
+    color: #fcc71f; /* żółta ikona */
+    font-size: 14px;
 }
 
 .header-top .header-address strong,
 .header-top .header-cta-link {
     font-size: 13px;
     line-height: 1.2;
+    color: #fff;
+    font-weight: 500;
 }
 
 /* W top-barze nie chcemy "blokowego" strong, bo podbija wysokość */
@@ -158,6 +185,29 @@ img {
 
 .header-top .header-cta {
     padding-left: 12px;
+}
+
+.header-top .header-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: #fcc71f; /* żółte tło przycisku */
+    color: #000 !important; /* czarny tekst */
+    border-radius: 20px; /* zaokrąglone rogi */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.header-top .header-cta-link i {
+    font-size: 12px;
+}
+
+.header-top .header-cta-link:hover {
+    background: #ffd740; /* jaśniejszy żółty przy hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(252, 199, 31, 0.3);
 }
 
 /* Top menu  */
@@ -385,7 +435,7 @@ img {
     padding: 32px 53px; /* -25% wysokości (pion) */
     background: #222; /* ciemny szary */
     color: #bbbbbb; /* szary tekst na czarnym */
-    border-radius: 0;
+    border-radius: 8px; /* zaokrąglone rogi */
     font-weight: 700; /* pogrubienie */
     position: relative; /* dla strzałki OFERTA */
 }
@@ -453,6 +503,7 @@ img {
     padding: 10px 0;
     z-index: 1000;
     list-style: none; /* bez kropek w sub-menu */
+    border-radius: 8px; /* zaokrąglone rogi */
 }
 
 .sub-menu li {
@@ -965,6 +1016,15 @@ img {
 .offer-tiles {
     padding: 46px 0 64px;
     background: #fff;
+    width: 100% !important; /* pełna szerokość strony */
+    max-width: 100% !important;
+}
+
+.offer-tiles__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
 }
 
 .offer-tiles__grid {
@@ -974,13 +1034,15 @@ img {
 }
 
 .offer-tile {
-    background: #fff;
+    background: #fff9e6; /* żółte tło zamiast białego */
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     overflow: hidden;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
                 box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    display: flex;
+    flex-direction: column; /* aby body wypełniało całą wysokość */
 }
 
 .offer-tile:hover {
@@ -1027,7 +1089,10 @@ img {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    min-height: 190px; /* żeby kafelki były równe */
+    height: 100%; /* wypełnia całą wysokość kafelka */
+    flex: 1; /* rozciąga się, aby wypełnić dostępną przestrzeń */
+    background: #fff9e6 !important; /* delikatnie żółte tło pod tekstem */
+    justify-content: space-between; /* wyrównanie przycisku na dole */
 }
 
 .offer-tile__title {
@@ -1051,6 +1116,7 @@ img {
 .offer-tile__btn {
     align-self: flex-start;
     margin: 0;
+    margin-top: auto !important; /* przycisk zawsze na dole */
 }
 
 @media (max-width: 992px) {
