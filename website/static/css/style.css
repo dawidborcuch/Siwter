@@ -1707,6 +1707,13 @@ img {
     letter-spacing: -0.02em;
 }
 
+.offer-detail .about-page__content h2 i {
+    color: #fcc71f;
+    margin-right: 12px;
+    font-size: 28px;
+    text-shadow: 0 0 4px rgba(252, 199, 31, 0.4);
+}
+
 .offer-detail .about-page__content h2::after {
     content: "";
     position: absolute;
